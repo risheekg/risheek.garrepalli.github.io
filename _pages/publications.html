@@ -11,41 +11,8 @@ author_profile: true
 
 <hr>
 
-<h2>Reinforcement Learning &amp; Foundation Models</h2>
-<p><em>Iterative proposal refinement, dense finite-horizon feedback, and distribution matching for structured prediction and embodied AI.</em></p>
-<ol>
-  <li>
-    Yasarla, Hegde, Han, Cheng, Shi, Sadeghigooghari, Mahajan, Bhattacharyya, Liu, <strong>Garrepalli</strong>, et al.
-    &ldquo;Generative Scenario Rollouts for End-to-End Autonomous Driving.&rdquo;
-    <strong>CVPR 2026.</strong>
-    <a href="https://arxiv.org/abs/2601.11475">[arXiv]</a>
-  </li>
-  <li>
-    Yasarla, Singh, Cai, Shi, Jeong, Zhu, Han, <strong>Garrepalli</strong>, Porikli.
-    &ldquo;FutureDepth: Learning to Predict the Future Improves Video Depth Estimation.&rdquo;
-    <strong>ECCV 2025.</strong>
-  </li>
-  <li>
-    Hegde, Yasarla, Cai, Han, Bhattacharyya, Mahajan, Liu, <strong>Garrepalli</strong>, Patel, Porikli.
-    &ldquo;Distilling Multi-modal Large Language Models for Autonomous Driving.&rdquo;
-    arXiv 2025.
-    <a href="https://arxiv.org/abs/2501.09757">[arXiv]</a>
-  </li>
-  <li>
-    Yasarla, Han, Cheng, Liu, Mahajan, Bhattacharyya, Shi, <strong>Garrepalli</strong>, Cai, Porikli.
-    &ldquo;RoCA: Robust Cross-Domain End-to-End Autonomous Driving.&rdquo;
-    arXiv 2025.
-    <a href="https://arxiv.org/abs/2506.10145">[arXiv]</a>
-  </li>
-  <li>
-    <strong>Garrepalli</strong>.
-    &ldquo;Temporal Difference Learning for Recurrent Neural Networks.&rdquo;
-    <strong>CCN 2019.</strong>
-  </li>
-</ol>
-
-<h2>Diffusion Models for Visual Generation</h2>
-<p><em>Score matching, masked objectives, trajectory diversity, compositionality, and inverse problems.</em></p>
+<h2>Reinforcement Learning &amp; Generative Modeling</h2>
+<p><em>Diffusion distillation reframed as sequential decision-making: the student is a policy, its denoising trajectory is a rollout, and the teacher&ndash;student trajectory mismatch is the standard imitation learning failure mode. DAgger-style on-policy correction (DDIL) eliminates this covariate shift and preserves marginal distributions at intermediate denoising steps. The same on-policy rollout principle extends to generative scenario rollouts for end-to-end autonomous driving.</em></p>
 <ol>
   <li>
     <strong>Garrepalli</strong>, Mahajan, Hayat, Porikli.
@@ -54,38 +21,23 @@ author_profile: true
     <a href="https://arxiv.org/abs/2410.11971">[arXiv]</a>
   </li>
   <li>
+    Yasarla, Hegde, Han, Cheng, Shi, Sadeghigooghari, Mahajan, Bhattacharyya, Liu, <strong>Garrepalli</strong>, et al.
+    &ldquo;Generative Scenario Rollouts for End-to-End Autonomous Driving.&rdquo;
+    <strong>CVPR 2026.</strong>
+    <a href="https://arxiv.org/abs/2601.11475">[arXiv]</a>
+  </li>
+</ol>
+
+<hr>
+
+<h2>Representation Analysis &amp; Training Objectives</h2>
+<p><em>Score matching and masked reconstruction encode complementary representational biases &mdash; what the model attends to and how it fills in missing information. Combining them (generative+discriminative at training time) yields richer representations and better inference-time recovery. This generalizes: across objective families, training formulation shapes internal geometry and determines what layers and tokens are load-bearing at inference.</em></p>
+<ol>
+  <li>
     <strong>Garrepalli</strong>*, Kadambi*, Borse, Hayat, Porikli.
     &ldquo;MADI: Masking-Augmented Diffusion with Inference-Time Scaling for Visual Editing.&rdquo;
     arXiv 2025.
     <a href="https://arxiv.org/abs/2507.13401">[arXiv]</a>
-  </li>
-  <li>
-    Habibian, Ghodrati, Fathima, Sautiere, <strong>Garrepalli</strong>, Porikli, Petersen.
-    &ldquo;Clockwork Diffusion: Efficient Generation With Model-Step Distillation.&rdquo;
-    <strong>CVPR 2024.</strong>
-  </li>
-  <li>
-    Borse, Kadambi, Pandey, Bhardwaj, Ganapathy, Priyadarshi, <strong>Garrepalli</strong>, Esteves, Hayat, Porikli.
-    &ldquo;FouRA: Fourier Low-Rank Adaptation.&rdquo;
-    <strong>NeurIPS 2024.</strong>
-    <a href="https://arxiv.org/abs/2406.08798">[arXiv]</a>
-  </li>
-  <li>
-    Bhardwaj, Pandey, Priyadarshi, Ganapathy, Kadambi, Esteves, Borse, Whatmough, <strong>Garrepalli</strong>, Van Baalen, Teague, Nagel.
-    &ldquo;Sparse High Rank Adapters.&rdquo;
-    <strong>NeurIPS 2024.</strong>
-    <a href="https://arxiv.org/abs/2407.16712">[arXiv]</a>
-  </li>
-</ol>
-
-<h2>Discrete Diffusion for Language</h2>
-<p><em>Contrasting token-level NTP with sequence-level diffusion: how objective and denoising process reshape internal geometry, unlocking multi-token atomicity and richer sampling.</em></p>
-<ol>
-  <li>
-    Agrawal, <strong>Garrepalli</strong>, Goel, Lee, Lott, Porikli.
-    &ldquo;Spiffy: Diffusion LLM Speculative Decoding.&rdquo;
-    arXiv 2025.
-    <a href="https://arxiv.org/abs/2509.18085">[arXiv]</a>
   </li>
   <li>
     Goel, <strong>Garrepalli</strong>, Agrawal, Lott, Lee, Porikli.
@@ -93,29 +45,13 @@ author_profile: true
     arXiv 2026.
     <a href="https://arxiv.org/abs/2603.07475">[arXiv]</a>
   </li>
-  <li>
-    Piskorz, Pinneri, Correia, Alfarra, <strong>Garrepalli</strong>, Louizos.
-    &ldquo;Masks can be distracting: On context comprehension in diffusion language models.&rdquo;
-    arXiv 2025.
-    <a href="https://arxiv.org/abs/2511.21338">[arXiv]</a>
-  </li>
-  <li>
-    Qin, Goel, Gagrani, <strong>Garrepalli</strong>, Lee, Sun.
-    &ldquo;ConFu: Contemplate the Future for Better Speculative Sampling.&rdquo;
-    arXiv 2026.
-    <a href="https://arxiv.org/abs/2603.08899">[arXiv]</a>
-  </li>
 </ol>
 
-<h2>AI Safety &amp; Uncertainty Quantification</h2>
-<p><em>Decoupling representational competence from information loss, and the downstream safety tradeoffs that follow.</em></p>
+<hr>
+
+<h2>Reliability &amp; Open-Set Recognition</h2>
+<p><em>What does a learned representation bound about model competence? Pairing discriminative representations with generative components &mdash; VAEs and normalizing flows explored independently &mdash; minimizes information loss and yields tighter PAC guarantees for novel category detection. The oracle analysis formalizes this: the ceiling on open-set detection is set by how much the representation preserves about the data manifold, and each generative+discriminative hybrid raises that ceiling through a different mechanism.</em></p>
 <ol>
-  <li>
-    Liu*, <strong>Garrepalli</strong>*, Hendrycks, Fern, Mondal, Dietterich.
-    &ldquo;PAC Guarantees and Effective Algorithms for Detecting Novel Categories.&rdquo;
-    <strong>JMLR 2022.</strong>
-    <a href="http://jmlr.org/papers/v23/21-0451.html">[JMLR]</a>
-  </li>
   <li>
     Liu*, <strong>Garrepalli</strong>*, Dietterich, Fern, Hendrycks.
     &ldquo;Open Category Detection with PAC Guarantees.&rdquo;
@@ -129,49 +65,25 @@ author_profile: true
   </li>
 </ol>
 
-<h2>Computer Vision</h2>
-<p><em>Structured prediction and generative priors for efficient, uncertainty-aware perception.</em></p>
+<hr>
+
+<h2>Generative Priors in Perception &amp; Embodied AI</h2>
+<p><em>Generative priors as inductive biases for perception and embodied AI: for memory-efficient flow estimation, for future-conditioned depth (predicting ahead as a generative prior over temporal structure), and for cross-domain autonomous driving where standard training cannot amortize the long tail &mdash; the bottleneck is representational expressivity and capacity for rare, distribution-shifted scenarios.</em></p>
 <ol>
-  <li>
-    Jeong, Cai, <strong>Garrepalli</strong>, Lin, Hayat, Porikli.
-    &ldquo;OCAI: Improving Optical Flow Estimation by Occlusion and Consistency Aware Interpolation.&rdquo;
-    <strong>CVPR 2024.</strong>
-  </li>
-  <li>
-    Lin, Jeong, Cai, <strong>Garrepalli</strong>, Wang, Porikli.
-    &ldquo;SciFlow: Empowering Lightweight Optical Flow Models with Self-Cleaning Iterations.&rdquo;
-    <strong>CVPRW 2024.</strong>
-  </li>
   <li>
     <strong>Garrepalli</strong>, Jeong, Ravindran, Lin, Porikli.
     &ldquo;DIFT: Dynamic Iterative Field Transforms for Memory Efficient Optical Flow.&rdquo;
     <strong>CVPRW 2023.</strong>
   </li>
   <li>
-    Jeong, Cai, <strong>Garrepalli</strong>, Porikli.
-    &ldquo;DistractFlow: Improving Optical Flow Estimation via Realistic Distractions and Pseudo-Labeling.&rdquo;
-    <strong>CVPR 2023.</strong>
+    Yasarla, Singh, Cai, Shi, Jeong, Zhu, Han, <strong>Garrepalli</strong>, Porikli.
+    &ldquo;FutureDepth: Learning to Predict the Future Improves Video Depth Estimation.&rdquo;
+    <strong>ECCV 2025.</strong>
   </li>
   <li>
-    Borse, Das, Park, Cai, <strong>Garrepalli</strong>, Porikli.
-    &ldquo;Dejavu: Conditional Regenerative Learning to Enhance Dense Prediction.&rdquo;
-    <strong>CVPR 2023.</strong>
-  </li>
-  <li>
-    Yasarla, Cai, Jeong, Shi, <strong>Garrepalli</strong>, Porikli.
-    &ldquo;MAMo: Leveraging Memory and Attention for Monocular Video Depth Estimation.&rdquo;
-    arXiv 2023.
-    <a href="https://arxiv.org/abs/2307.14336">[arXiv]</a>
-  </li>
-  <li>
-    Das, Borse, Park, Azarian, Cai, <strong>Garrepalli</strong>, Porikli.
-    &ldquo;TransAdapt: A Transformative Framework for Online Test Time Adaptive Semantic Segmentation.&rdquo;
-    <strong>ICASSP 2023.</strong>
-  </li>
-  <li>
-    Borse, Park, Cai, Das, <strong>Garrepalli</strong>, Porikli.
-    &ldquo;Panoptic, Instance and Semantic Relations: A Relational Context Encoder to Enhance Panoptic Segmentation.&rdquo;
-    arXiv 2022.
-    <a href="https://arxiv.org/abs/2204.05370">[arXiv]</a>
+    Yasarla, Han, Cheng, Liu, Mahajan, Bhattacharyya, Shi, <strong>Garrepalli</strong>, Cai, Porikli.
+    &ldquo;RoCA: Robust Cross-Domain End-to-End Autonomous Driving.&rdquo;
+    arXiv 2025.
+    <a href="https://arxiv.org/abs/2506.10145">[arXiv]</a>
   </li>
 </ol>
