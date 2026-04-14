@@ -28,18 +28,17 @@ I approach problems through probabilistic modeling and RL, grounded in numerical
 
 ## Current Work
 
-How do you realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence, and when can the external scaffolding that supports them be amortized away? 
+How do we realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence, and when can the external scaffolding that supports them be amortized away?
 
-*Shared modeling questions for LLMs, vision-grounded world models, reasoning!*
+*Shared modeling questions for LLMs, vision-grounded world models, reasoning.*
 
+- **World models are splitting into two camps — the opportunity is in the middle.** Token/KV-cache systems give clean planning interfaces and persistent state; video-diffusion models give richer implicit dynamics but weaker manipulable abstractions. Neither wins alone. The missing piece is a controllable intermediate: persistent summaries plus local detail, a physics-aware planning interface, and a feedback loop that still exploits video-scale dynamics. The bottleneck is the interface between memory, reasoning, and control.
 
-<!-- - **On-policy distillation** — the deeper question is what the harness amortizes into: whether distillation from frontier teachers, verifiers, or critics shapes hierarchically structured, controllable, competence-aware representations in smaller models. -->
-- **Open questions:**
-  - World models: what controllable abstraction bridges token/KV-cache and video-diffusion systems?
-  - Harness amortization: when can external scaffolds be internalized?
-  - Small model distillation: what survives compression while preserving structured reasoning?
+- **External harnesses are a stage, not a permanent crutch.** Verifiers, judges, teachers, and planners reveal what control signal the base model was missing. The scientifically interesting question is which parts can be amortized into the model's internal representation over time — and how you know when they're still necessary. Models that know *when* they need external help, and learn from it, are the right target.
 
-- **Diffusion LLMs as lever** 
+- **Representation, competence, and memory are one problem.** "Latent reasoning," "KV compression," "visual memory," and "external verifiers" are treated as separate subfields. They're competing answers to the same underlying question: *what state should persist, and in what form?* The next capability gains come from shaping internal structure that jointly supports competence estimation, memory compression, and selective use of scaffolds: not from treating these as independent engineering concerns.
+
+- **Diffusion LLMs as lever.** 
 Multi-token atomic generation shifts both planning horizon and decision DoF — diffusion commits jointly over spans rather than sequentially token by token, which may yield smoother trajectories and more compressible internal states.
 ---
 
