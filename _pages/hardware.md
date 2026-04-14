@@ -27,11 +27,11 @@ Founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid r
 
 ---
 
-## Neuro-Adaptive Optimal Control — Quadcopters (IASC)
+## Neuro-Adaptive Optimal Control — Quadcopters (IISc)
 
-Research on adaptive control for quadrotors at IASC, where the goal was maintaining stable flight under model uncertainty and external disturbances. Neuro-adaptive methods combine a nominal optimal controller with a neural network that learns and compensates for unmodeled dynamics online.
+Research on adaptive control for quadrotors at the Indian Institute of Science (IISc), where the goal was maintaining stable flight under model uncertainty and external disturbances. The setup: a nominal optimal controller paired with a neural network that continuously learns unmodeled dynamics online and updates the control policy in response — simultaneous online model identification and policy adaptation.
 
-The interesting tension: the neural component improves performance in the presence of disturbances, but introduces questions about stability guarantees that classical adaptive control theory handles cleanly. This is a microcosm of the broader sim-to-real and distribution-shift problems in learned control.
+In RL terms: the agent is updating both its world model estimate and its policy in closed loop, with no episode resets, under a stability requirement that classical adaptive control theory formalizes explicitly. The interesting tension is that the neural component improves performance under disturbances but trades away the clean Lyapunov stability guarantees of purely classical methods — a concrete instance of the expressivity-vs-guarantees tradeoff that appears throughout learned control.
 
 ---
 
