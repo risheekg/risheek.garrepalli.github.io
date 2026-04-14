@@ -10,8 +10,6 @@ I'm a Staff Research Scientist at **Qualcomm AI Research**, working at the inter
 
 I approach problems through probabilistic modeling and RL, grounded in numerical optimization and occasionally dynamical systems and theory as a diagnostic tool. This lens runs across my work on diffusion models for vision and language, open-set detection, covariate shift in distilled samplers, policy learning, and how to guide sampling toward regions the model can actually reason about.
 
-The question I'm currently pushing toward: how do you realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence — and when can the external scaffolding that supports them be amortized away? Diffusion LLMs are one lever: multi-token atomic generation extends the effective planning horizon (MPC-style), potentially yielding smoother and more compressible internal states than next-token prediction. The deeper question is what the harness amortizes into — whether distillation from frontier teachers, verifiers, or critics is the pressure that shapes hierarchically structured, controllable, competence-aware representations inside smaller models.
-
 **20+ publications at NeurIPS / ICML / CVPR / ECCV / ICLR / JMLR.**
 
 ---
@@ -26,6 +24,19 @@ The question I'm currently pushing toward: how do you realize latent representat
 
 **Hardware-first grounding** — Before ML: fault-tree analysis on a satellite team (ISRO collaboration), then founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid robot — DoF allocation, static load analysis, EKF state estimation, 3D-LIP gait control, from concept to walking prototype.
 
+---
+
+## Current Work
+
+How do you realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence, and when can the external scaffolding that supports them be amortized away?
+
+
+<!-- - **On-policy distillation** — the deeper question is what the harness amortizes into: whether distillation from frontier teachers, verifiers, or critics shapes hierarchically structured, controllable, competence-aware representations in smaller models. -->
+- **Open questions:**
+  - world models: what controllable abstraction bridges token/KV-cache and video-diffusion systems?
+  - harness amortization: when can external scaffolds be internalized?
+  - small model distillation: what survives compression while preserving structured reasoning?
+- **Diffusion LLMs as lever** — multi-token atomic generation extends the effective planning horizon (MPC-style), potentially yielding smoother and more compressible internal states than next-token prediction.
 ---
 
 ## Research Interests

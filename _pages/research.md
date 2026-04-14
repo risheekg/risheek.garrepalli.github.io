@@ -5,9 +5,9 @@ permalink: /research/
 author_profile: true
 ---
 
-My research is organized around a single question that surfaces differently across domains: **how does the choice of training formulation shape what a model can represent, where it fails, and how detectable those failures are?**
+The question running through my research: **how does the choice of training formulation shape what a model can represent, where it fails, and how detectable those failures are?**
 
-This question connects work on diffusion distillation, open-set recognition, policy learning, and on-device deployment — not as separate topics but as different instantiations of the same underlying problem of representational competence under distribution shift.
+This connects work on diffusion distillation, open-set recognition, policy learning, and on-device deployment — not as separate topics but as different angles on the same underlying problem of representational competence under distribution shift.
 
 ---
 
@@ -53,7 +53,7 @@ The thread connecting this body of work: **competence estimation** — knowing n
 
 **The central question.** How do you realize latent representations with multiple implicit levels of hierarchy — yet controllable, and with reliable notions of competence? This question connects back to the open-set and hybrid representation work directly: what a representation preserves determines what's detectable, what's compressible, and what's trustworthy. The difference now is that the question is live for foundation models at a scale where probing it is hard, and where the failure modes are less legible.
 
-**SLMs augmented with on-policy distillation as the testbed.** Asking these questions directly on frontier-scale models is infeasible. But the same questions are tractable on small language models trained with on-policy distillation: use a frontier model as teacher, verifier, or critic; distill the useful control signal; and study whether that training pressure produces representations that are hierarchically structured, competence-aware, and increasingly self-sufficient as the harness is amortized away. The constraint is scale access. The intellectual bet is that small models are actually the cleaner experimental setting — easier to probe, easier to ablate, and if the representation structure we want exists there, it likely generalizes.
+**SLMs augmented with on-policy distillation as the testbed.** Frontier-scale models are the wrong place to study this — too large to ablate, too opaque to probe systematically. Small language models trained with on-policy distillation are the right setting: use a frontier model as teacher, verifier, or critic; distill the useful control signal; and study whether that training pressure produces representations that are hierarchically structured, competence-aware, and increasingly self-sufficient as the harness is amortized away. If the representation structure we want exists in small models, it likely generalizes.
 
 **Diffusion LLMs as a lever.** Discrete diffusion naturally extends the atomic horizon of generation — where next-token prediction commits one token at a time, diffusion operates over spans in a finite-horizon, MPC-style manner. That may yield smoother or more compressible internal states, and a cleaner substrate for hierarchical latent structure than autoregressive decoding forces. Skip-to-Good-Part gives early evidence that diffusion and AR models encode measurably different representational geometry; the open question is whether those differences are exploitable for controllability and hierarchy — not just efficiency.
 

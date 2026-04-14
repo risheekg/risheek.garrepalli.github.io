@@ -30,7 +30,7 @@ author_profile: true
 <hr>
 
 <h2>Reliability &amp; Open-Set Recognition</h2>
-<p><em>What does a learned representation bound about model competence? Pairing discriminative representations with generative components &mdashminimizes information loss and better open set recognition. The oracle analysis captures this: the ceiling on open-set detection is set by how much the representation preserves about the data manifold, and each generative+discriminative hybrid raises that ceiling through a different mechanism.</em></p>
+<p><em>What does a learned representation bound about model competence? Pairing discriminative representations with generative components &mdash; minimizes information loss and improves open-set recognition. The oracle analysis captures this: the ceiling on open-set detection is set by how much the representation preserves about the data manifold, and each generative+discriminative hybrid raises that ceiling through a different mechanism.</em></p>
 <ol>
   <li>
     Liu*, <strong>Garrepalli</strong>*, Dietterich, Fern, Hendrycks.
@@ -48,7 +48,7 @@ author_profile: true
 <hr>
 
 <h2>Representation Analysis &amp; Training Objectives</h2>
-<p><em>The training objective is not just a loss function &mdash; it installs a prior over what the representation must capture. Score matching requires the model to predict directional structure across the data manifold and results in strong global represenations; masked reconstruction requires it to model local compositional dependencies. These are complementary structural priors on representatio. The Skip-to-Good-Part result makes the structural consequence explicit: training objective determines information organization, smoothness across layers, tokens and hence learning dynamics, potential MoE expert specialization, compressability of model beyond inference time speedup based on objective.</em></p>
+<p><em>The training objective is not just a loss function &mdash; it installs a prior over what the representation must capture. Score matching requires the model to predict directional structure across the data manifold and results in strong global representations; masked reconstruction requires it to model local compositional dependencies. These are complementary structural priors on representation. The Skip-to-Good-Part result makes the structural consequence explicit: training objective determines information organization, smoothness across layers and tokens, and hence learning dynamics, potential MoE expert specialization, and compressibility of the model beyond inference-time speedup.</em></p>
 <ol>
   <li>
     <strong>Garrepalli</strong>*, Kadambi*, Borse, Hayat, Porikli.
