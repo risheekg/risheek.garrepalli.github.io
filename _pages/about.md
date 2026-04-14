@@ -20,7 +20,7 @@ I approach problems through probabilistic modeling and RL, grounded in numerical
 
 **Diffusion distillation from first principles** — Identified trajectory diversity collapse as a fundamental failure mode in distilled diffusion models. Proposed a DAgger-based fix (DDIL) that eliminates covariate shift between teacher and student sampling trajectories, preserving marginal distributions at intermediate denoising steps. A sequential decision-making framing of a problem the field had been treating as pure regression.
 
-**Reliable representations under distribution shift** — Graduate research at Oregon State (advisors: Tom Dietterich, Alan Fern) on open-set detection, calibrated uncertainty via VAEs and normalizing flows, and what contrastive and ensemble methods actually capture about the data manifold.
+**Reliable representations under distribution shift** — Graduate research at Oregon State (advisors: Tom Dietterich, Alan Fern). The inability to handle "unknown-unknowns" natively during learning is a fundamental flaw we currently patch with external harnesses. My work focused on what a learned representation fundamentally captures and how to quantify its information loss. I demonstrated that augmenting discriminative objectives with generative priors forces models to retain richer structural information, yielding representations that naturally bound their own competence and expose reliable uncertainty signals.
 
 **Hardware-first grounding** — Before ML: fault-tree analysis on a satellite team (ISRO collaboration), then founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid robot — DoF allocation, static load analysis, EKF state estimation, 3D-LIP gait control, from concept to walking prototype.
 
