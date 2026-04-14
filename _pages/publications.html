@@ -11,12 +11,12 @@ author_profile: true
 
 <hr>
 
-<h2>Reinforcement Learning &amp; Generative Modeling</h2>
+<h2>Reinforcement Learning & Generative Modeling</h2>
 <p><em>Diffusion distillation reframed as sequential decision-making.</em></p>
 <ul>
-  <li>Student is a policy; its denoising trajectory is a rollout.</li>
-  <li>Teacher&ndash;student trajectory mismatch is the standard imitation learning failure mode (covariate shift).</li>
-  <li>DAgger-style on-policy correction (DDIL) eliminates this and preserves marginal distributions at intermediate denoising steps.</li>
+  <li><strong>Trajectory as Rollout:</strong> Framed the diffusion student as a policy and its denoising path as a rollout.</li>
+  <li><strong>The Covariate Shift Problem:</strong> Identified that teacher&ndash;student trajectory mismatch is a standard imitation learning failure mode.</li>
+  <li><strong>DAgger for Diffusion (DDIL):</strong> Proposed an on-policy correction that eliminates shift and preserves marginal distributions at intermediate steps.</li>
 </ul>
 <ol>
   <li>
@@ -35,12 +35,12 @@ author_profile: true
 
 <hr>
 
-<h2>Reliability &amp; Open-Set Recognition</h2>
+<h2>Reliability & Open-Set Recognition</h2>
 <p><em>What does a learned representation bound about model competence?</em></p>
 <ul>
-  <li>Pairing discriminative representations with generative components minimizes information loss and raises the open-set detection ceiling.</li>
-  <li>The oracle analysis: ceiling is set by what the representation preserves about the data manifold &mdash; not by the classifier.</li>
-  <li>VAEs as complementary generative components, each raising the ceiling through a different mechanism.</li>
+  <li><strong>The Oracle Analysis:</strong> Proved that open-set detection ceilings are set by what the representation preserves about the data manifold;not the classifier or non-conformity measure.</li>
+  <li><strong>Raising the Ceiling:</strong> Minimized information loss by pairing discriminative representations with generative objectives.</li>
+  <!-- <li><strong>Complementary Mechanisms:</strong> Showed how different VAE architectures each raise the detection ceiling through distinct mechanisms.</li> -->
 </ul>
 <ol>
   <li>
@@ -58,12 +58,13 @@ author_profile: true
 
 <hr>
 
-<h2>Representation Analysis &amp; Training Objectives</h2>
-<p><em>The training objective is not just a loss function, it installs a prior over what the representation must capture.</em></p>
+<h2>Representation Analysis & Training Objectives</h2>
+<p><em>The training objective is not just a loss function; it installs a prior over what the representation must capture.</em></p>
 <ul>
-  <li>Score matching requires predicting directional structure across the data manifold resulting in strong global representations.</li>
-  <li>Masked reconstruction requires modeling local compositional dependencies and complementary structural prior. MAgD shows combining them recovers what neither captures alone.</li>
-  <li>Skip-to-Good-Part: training objective determines information organization and smoothness across layers; shaping learning dynamics, model compressibility, and expert specialization beyond inference-time speedup.</li>
+  <li><strong>Global vs. Local Priors:</strong> Showed that score matching forces global directional structure, while masked reconstruction forces local compositional dependencies.</li>
+  <li><strong>Combining Priors (MAgD):</strong> Demonstrated that augmenting diffusion with masking recovers structural information neither objective captures alone.</li>
+  <li><strong>AR vs. Diffusion LLMs:</strong> Hypothesized that diffusion's trajectory-level planning induces fundamentally different information organization and MoE specialization compared to autoregressive models.</li>
+  <li><strong>Skip-to-Good-Part:</strong> Demonstrated preliminary evidence of this architectural divergence by analyzing layer-wise representational smoothness and computational redundancy.</li>
 </ul>
 <ol>
   <li>
@@ -74,7 +75,7 @@ author_profile: true
   </li>
   <li>
    <strong>Garrepalli</strong>*, Goel*, Agrawal, Lott, Lee, Porikli.
-    &ldquo;Skip to the Good Part: Representation Structure &amp; Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs.&rdquo;
+    &ldquo;Skip to the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs.&rdquo;
     arXiv 2026.
     <a href="https://arxiv.org/abs/2603.07475">[arXiv]</a>
   </li>
@@ -82,11 +83,12 @@ author_profile: true
 
 <hr>
 
-<h2>Generative Priors in Perception &amp; Embodied AI</h2>
+<h2>Generative Priors in Perception & Embodied AI</h2>
 <p><em>Generative priors as deliberate inductive biases for perception.</em></p>
 <ul>
-  <li>DIFT: coarse-to-fine refinement is the right Bayesian prior for optical flow &mdash; hierarchical structure imposed, not suggested; computational efficiency follows from the prior.</li>
-  <li>RoCA: representational expressivity is the bottleneck for rare cross-domain scenarios; generative rollouts reweight the distribution rather than patching it.</li>
+  <li><strong>DIFT:</strong> Showed that coarse-to-fine refinement is the optimal Bayesian prior for optical flow, yielding computational efficiency naturally.</li>
+  <li><strong>RoCA:</strong> Identified representational expressivity as the bottleneck for rare, cross-domain driving scenarios.</li>
+  <li><strong>Generative Rollouts:</strong> Used generative rollouts to successfully reweight the training distribution rather than manually patching it.</li>
 </ul>
 <ol>
   <li>
