@@ -28,15 +28,18 @@ I approach problems through probabilistic modeling and RL, grounded in numerical
 
 ## Current Work
 
-How do you realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence, and when can the external scaffolding that supports them be amortized away?
+How do you realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence, and when can the external scaffolding that supports them be amortized away? 
+
+*Shared modeling questions for LLMs, vision-grounded world models, reasoning!*
 
 
 <!-- - **On-policy distillation** — the deeper question is what the harness amortizes into: whether distillation from frontier teachers, verifiers, or critics shapes hierarchically structured, controllable, competence-aware representations in smaller models. -->
 - **Open questions:**
-  - world models: what controllable abstraction bridges token/KV-cache and video-diffusion systems?
-  - harness amortization: when can external scaffolds be internalized?
-  - small model distillation: what survives compression while preserving structured reasoning?
-- **Diffusion LLMs as lever** — multi-token atomic generation extends the effective planning horizon (MPC-style), potentially yielding smoother and more compressible internal states than next-token prediction.
+  - World models: what controllable abstraction bridges token/KV-cache and video-diffusion systems?
+  - Harness amortization: when can external scaffolds be internalized?
+  - Small model distillation: what survives compression while preserving structured reasoning?
+
+- **Diffusion LLMs as lever** Multi-token atomic generation extends and changes DoF within planning horizon (MPC-style), potentially yielding smoother and more compressible internal states than next-token prediction.
 ---
 
 ## Research Interests
