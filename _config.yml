@@ -14,7 +14,7 @@ title_separator          : "-"
 name                     : &name "Risheek Garrepalli"
 description              : &description "Staff Research Scientist — generative modeling, RL, and representation learning. Qualcomm AI Research."
 url                      : https://risheekg.github.io
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
+baseurl                  : "/risheek.garrepalli.github.io"
 repository               : "risheekg/risheekg.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
