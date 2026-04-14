@@ -10,6 +10,8 @@ I'm a Staff Research Scientist at **Qualcomm AI Research**, working at the inter
 
 I approach problems through probabilistic modeling and RL, grounded in numerical optimization and occasionally dynamical systems and theory as a diagnostic tool. This lens runs across my work on diffusion models for vision and language, open-set detection, covariate shift in distilled samplers, policy learning, and how to guide sampling toward regions the model can actually reason about.
 
+The question I'm currently pushing toward: how do you realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence — and when can the external scaffolding that supports them be amortized away? Diffusion LLMs are one lever: multi-token atomic generation extends the effective planning horizon (MPC-style), potentially yielding smoother and more compressible internal states than next-token prediction. The deeper question is what the harness amortizes into — whether distillation from frontier teachers, verifiers, or critics is the pressure that shapes hierarchically structured, controllable, competence-aware representations inside smaller models.
+
 **20+ publications at NeurIPS / ICML / CVPR / ECCV / ICLR / JMLR.**
 
 ---

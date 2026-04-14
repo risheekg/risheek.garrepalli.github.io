@@ -46,3 +46,18 @@ This framing unified several concurrent distillation methods (DMD2, LADD, Clockw
 **Risk-sensitive RL and constrained MDPs.** How to incorporate uncertainty estimates into policy learning: constraint-based approaches that penalize policies for acting in regions where the world model is unreliable.
 
 The thread connecting this body of work: **competence estimation** — knowing not just what a model predicts, but whether to trust the prediction. This is now more relevant than ever given the scale of deployed foundation models.
+
+---
+
+## Current Work & Open Questions
+
+**The central question.** How do you realize latent representations with multiple implicit levels of hierarchy — yet controllable, and with reliable notions of competence? This question connects back to the open-set and hybrid representation work directly: what a representation preserves determines what's detectable, what's compressible, and what's trustworthy. The difference now is that the question is live for foundation models at a scale where probing it is hard, and where the failure modes are less legible.
+
+**SLMs augmented with on-policy distillation as the testbed.** Asking these questions directly on frontier-scale models is infeasible. But the same questions are tractable on small language models trained with on-policy distillation: use a frontier model as teacher, verifier, or critic; distill the useful control signal; and study whether that training pressure produces representations that are hierarchically structured, competence-aware, and increasingly self-sufficient as the harness is amortized away. The constraint is scale access. The intellectual bet is that small models are actually the cleaner experimental setting — easier to probe, easier to ablate, and if the representation structure we want exists there, it likely generalizes.
+
+**Diffusion LLMs as a lever.** Discrete diffusion naturally extends the atomic horizon of generation — where next-token prediction commits one token at a time, diffusion operates over spans in a finite-horizon, MPC-style manner. That may yield smoother or more compressible internal states, and a cleaner substrate for hierarchical latent structure than autoregressive decoding forces. Skip-to-Good-Part gives early evidence that diffusion and AR models encode measurably different representational geometry; the open question is whether those differences are exploitable for controllability and hierarchy — not just efficiency.
+
+**Open questions.** 
+World models: what controllable abstraction bridges token/KV-cache systems with strong planning interfaces and video-diffusion systems with richer implicit dynamics? 
+Harness amortization: when can external judges, teachers, and verifiers be internalized rather than permanently scaffolded? 
+Small model distillation: what survives compression while preserving structured reasoning?
