@@ -12,7 +12,12 @@ author_profile: true
 <hr>
 
 <h2>Reinforcement Learning &amp; Generative Modeling</h2>
-<p><em>Diffusion distillation reframed as sequential decision-making: the student is a policy, its denoising trajectory is a rollout, and the teacher&ndash;student trajectory mismatch is the standard imitation learning failure mode. DAgger-style on-policy correction (DDIL) eliminates this covariate shift and preserves marginal distributions at intermediate denoising steps.</em></p>
+<p><em>Diffusion distillation reframed as sequential decision-making.</em></p>
+<ul>
+  <li>Student is a policy; its denoising trajectory is a rollout.</li>
+  <li>Teacher&ndash;student trajectory mismatch is the standard imitation learning failure mode (covariate shift).</li>
+  <li>DAgger-style on-policy correction (DDIL) eliminates this and preserves marginal distributions at intermediate denoising steps.</li>
+</ul>
 <ol>
   <li>
     <strong>Garrepalli</strong>, Mahajan, Hayat, Porikli.
@@ -23,14 +28,20 @@ author_profile: true
   <li>
     Yasarla, Hegde, Han, Cheng, Shi, Sadeghigooghari, Mahajan, Bhattacharyya, Liu, <strong>Garrepalli</strong>, et al.
     &ldquo;Generative Scenario Rollouts for End-to-End Autonomous Driving.&rdquo;
-    <strong>CVPR 2026.</strong>
+    arXiv 2025.
     <a href="https://arxiv.org/abs/2601.11475">[arXiv]</a>
   </li>
 </ol>
+
 <hr>
 
 <h2>Reliability &amp; Open-Set Recognition</h2>
-<p><em>What does a learned representation inform about model competence? Pairing discriminative representations with generative components 'minimizes' information loss and improves open-set recognition. The oracle analysis captures this: the ceiling on open-set detection is set by how much the representation preserves about the data manifold, and minimizing information loss in representation raises that ceiling by combining complementary training objectives.</em></p>
+<p><em>What does a learned representation bound about model competence?</em></p>
+<ul>
+  <li>Pairing discriminative representations with generative components minimizes information loss and raises the open-set detection ceiling.</li>
+  <li>The oracle analysis: ceiling is set by what the representation preserves about the data manifold &mdash; not by the classifier.</li>
+  <li>VAEs as complementary generative components, each raising the ceiling through a different mechanism.</li>
+</ul>
 <ol>
   <li>
     Liu*, <strong>Garrepalli</strong>*, Dietterich, Fern, Hendrycks.
@@ -48,7 +59,12 @@ author_profile: true
 <hr>
 
 <h2>Representation Analysis &amp; Training Objectives</h2>
-<p><em>The training objective is not just a loss function &mdash; it installs a prior over what the representation must capture. Score matching requires the model to predict directional structure across the data manifold and results in strong global representations; masked reconstruction requires it to model local compositional dependencies. These are complementary structural priors on representation. The Skip-to-Good-Part result makes the structural consequence explicit: training objective determines information organization, smoothness across layers and tokens, and hence learning dynamics, potential MoE expert specialization, and compressibility of the model beyond inference-time speedup.</em></p>
+<p><em>The training objective is not just a loss function, it installs a prior over what the representation must capture.</em></p>
+<ul>
+  <li>Score matching requires predicting directional structure across the data manifold resulting in strong global representations.</li>
+  <li>Masked reconstruction requires modeling local compositional dependencies and complementary structural prior. MAgD shows combining them recovers what neither captures alone.</li>
+  <li>Skip-to-Good-Part: training objective determines information organization and smoothness across layers; shaping learning dynamics, model compressibility, and expert specialization beyond inference-time speedup.</li>
+</ul>
 <ol>
   <li>
     <strong>Garrepalli</strong>*, Kadambi*, Borse, Hayat, Porikli.
@@ -67,7 +83,11 @@ author_profile: true
 <hr>
 
 <h2>Generative Priors in Perception &amp; Embodied AI</h2>
-<p><em>Generative priors as deliberate inductive biases for perception. DIFT enforces hierarchical correspondence estimation: from a Bayesian view, coarse-to-fine refinement is the right prior for optical flow &mdash; the hierarchical structure is imposed, not suggested, and computational efficiency follows from the structure rather than motivating it. FutureDepth is among the first to avoid teacher-forced training in video depth estimation: rather than regressing to ground-truth depth at each frame, the model learns latent temporal dynamics through future-frame prediction and transfers that generative prior to the discriminative task. In RoCA, the bottleneck is representational expressivity: rare cross-domain scenarios cannot be amortized into the loss at standard training scale, and generative rollouts reweight the distribution rather than patching it with augmentation.</em></p>
+<p><em>Generative priors as deliberate inductive biases for perception.</em></p>
+<ul>
+  <li>DIFT: coarse-to-fine refinement is the right Bayesian prior for optical flow &mdash; hierarchical structure imposed, not suggested; computational efficiency follows from the prior.</li>
+  <li>RoCA: representational expressivity is the bottleneck for rare cross-domain scenarios; generative rollouts reweight the distribution rather than patching it.</li>
+</ul>
 <ol>
   <li>
     <strong>Garrepalli</strong>, Jeong, Ravindran, Lin, Porikli.
