@@ -23,13 +23,11 @@ This framing unified several concurrent distillation methods (DMD2, LADD, Clockw
   <iframe width="340" height="604" src="https://www.youtube.com/embed/64VsQHhImQI" frameborder="0" allowfullscreen></iframe>
 </div>
 
-**Efficient video perception with calibrated uncertainty.** Temporally-consistent depth estimation and optical flow under extreme latency constraints (<10ms), with calibrated uncertainty — useful for downstream tasks that need to know when the perception system is unreliable.
-
 ---
 
 ## Foundation Models & Embodied AI
 
-**Speculative decoding for autoregressive models.** Led research on draft-then-verify acceleration for LLMs and VLAs at Qualcomm. The core challenge is not just speed but maintaining output distribution fidelity under on-device memory budgets.
+**Foundational modeling: inference, generation, and unified objectives.** A thread connecting speculative decoding for autoregressive models, discrete diffusion for language, and unified generative frameworks (e.g., masking-augmented diffusion with inference-time scaling). The underlying question across these: what does the choice of training objective — next-token prediction, score matching, masked diffusion — commit the model to at inference time, and where do those commitments become bottlenecks? Speculative decoding is one answer to the efficiency side; discrete diffusion and hybrid objectives are a bet on the representation side.
 
 **Vision-language-action models and diffusion policies.** Research on VLA training, on-policy distillation for action chunking, and RL-based action generation for robotic manipulation. The connection to the diffusion distillation work is direct: a diffusion policy is a conditional sampler, and the same trajectory covariate shift problem applies.
 
