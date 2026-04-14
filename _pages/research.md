@@ -29,7 +29,7 @@ This framing unified several concurrent distillation methods (DMD2, LADD, Clockw
 
 **Foundational modeling: inference, generation, and unified objectives.** A thread connecting speculative decoding for autoregressive models, discrete diffusion for language, and unified generative frameworks (e.g., masking-augmented diffusion with inference-time scaling). The underlying question across these: what does the choice of training objective — next-token prediction, score matching, masked diffusion — commit the model to at inference time, and where do those commitments become bottlenecks? Speculative decoding is one answer to the efficiency side; discrete diffusion and hybrid objectives are a bet on the representation side.
 
-**Vision-language-action models and diffusion policies.** Research on VLA training, on-policy distillation for action chunking, and RL-based action generation for robotic manipulation. The connection to the diffusion distillation work is direct: a diffusion policy is a conditional sampler, and the same trajectory covariate shift problem applies.
+**Vision-language-action models and diffusion policies.** Research on VLA training, and RL-based action generation for autonomous driving.
 
 **Distributed training at scale.** Architected multi-node training infrastructure (FSDP/ZeRO-3, model sharding, streaming dataloaders) for billion-parameter diffusion and foundation models.
 
@@ -41,7 +41,7 @@ This framing unified several concurrent distillation methods (DMD2, LADD, Clockw
 
 **Open-set detection.** Models trained on closed-world distributions encounter out-of-distribution inputs at deployment. I studied what representation structure (contrastive, ensemble, flow-based, VAE-based) makes unknown-class inputs detectable — and where that structure breaks down.
 
-**Calibrated uncertainty.** Confidence scores from deep networks are often miscalibrated under distribution shift. Work on post-hoc calibration and representation-level approaches (normalizing flows, deep ensembles) to produce uncertainty estimates that are reliable as a safety signal.
+<!-- **Calibrated uncertainty.** Confidence scores from deep networks are often miscalibrated under distribution shift. Work on post-hoc calibration and representation-level approaches (normalizing flows, deep ensembles) to produce uncertainty estimates that are reliable as a safety signal. -->
 
 **Risk-sensitive RL and constrained MDPs.** How to incorporate uncertainty estimates into policy learning: constraint-based approaches that penalize policies for acting in regions where the world model is unreliable.
 
@@ -49,7 +49,7 @@ The thread connecting this body of work: **competence estimation** — knowing n
 
 ---
 
-## Current Work & Open Questions
+<!-- ## Current Work & Open Questions
 
 **The central question.** How do you realize latent representations with multiple implicit levels of hierarchy — yet controllable, and with reliable notions of competence? This question connects back to the open-set and hybrid representation work directly: what a representation preserves determines what's detectable, what's compressible, and what's trustworthy. The difference now is that the question is live for foundation models at a scale where probing it is hard, and where the failure modes are less legible.
 
@@ -58,6 +58,6 @@ The thread connecting this body of work: **competence estimation** — knowing n
 **Diffusion LLMs as a lever.** Discrete diffusion naturally extends the atomic horizon of generation — where next-token prediction commits one token at a time, diffusion operates over spans in a finite-horizon, MPC-style manner. That may yield smoother or more compressible internal states, and a cleaner substrate for hierarchical latent structure than autoregressive decoding forces. Skip-to-Good-Part gives early evidence that diffusion and AR models encode measurably different representational geometry; the open question is whether those differences are exploitable for controllability and hierarchy — not just efficiency.
 
 **Open questions.** 
-World models: what controllable abstraction bridges token/KV-cache systems with strong planning interfaces and video-diffusion systems with richer implicit dynamics? 
-Harness amortization: when can external judges, teachers, and verifiers be internalized rather than permanently scaffolded? 
-Small model distillation: what survives compression while preserving structured reasoning?
+- World models: what controllable abstraction bridges token/KV-cache systems with strong planning interfaces and video-diffusion systems with richer implicit dynamics? 
+- Harness amortization: when can external judges, teachers, and verifiers be internalized rather than permanently scaffolded? 
+- Small model distillation: what survives compression while preserving structured reasoning? -->
