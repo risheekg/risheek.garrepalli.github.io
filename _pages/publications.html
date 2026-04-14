@@ -16,7 +16,8 @@ author_profile: true
 <ul>
   <li><strong>Trajectory as Rollout:</strong> Framed the diffusion student as a policy and its denoising path as a rollout.</li>
   <li><strong>The Covariate Shift Problem:</strong> Identified that teacher&ndash;student trajectory mismatch is a standard imitation learning failure mode.</li>
-  <li><strong>DAgger for Diffusion (DDIL):</strong> Proposed an on-policy correction that eliminates shift and preserves marginal distributions at intermediate steps.</li>
+  <li><strong>DAgger for Diffusion (DDIL):</strong> Proposed an early instantiation of on-policy distillation—an approach now central to LLM post-training—to eliminate trajectory shift and preserve intermediate marginal distributions.</li>
+  <!-- <li><strong>DAgger for Diffusion (DDIL) original draft:</strong> Proposed on-policy correction for diffusion distillation — an early instantiation of on-policy distillation, now a central technique in LLM post-training, applied here to eliminate trajectory shift and preserve marginal distributions at intermediate denoising steps.</li> -->
 </ul>
 <ol>
   <li>
@@ -86,9 +87,9 @@ author_profile: true
 <h2>Generative Priors in Perception & Embodied AI</h2>
 <p><em>Generative priors as deliberate inductive biases for perception.</em></p>
 <ul>
-  <li><strong>DIFT:</strong> Showed that coarse-to-fine refinement is the optimal Bayesian prior for optical flow, yielding computational efficiency naturally.</li>
-  <li><strong>RoCA:</strong> Identified representational expressivity as the bottleneck for rare, cross-domain driving scenarios.</li>
-  <li><strong>Generative Rollouts:</strong> Used generative rollouts to successfully reweight the training distribution rather than manually patching it.</li>
+  <li><strong>DIFT:</strong> Enforced hierarchical correspondence estimation, showing that from a Bayesian view, coarse-to-fine refinement is the right prior for optical flow&mdash;the hierarchical structure is imposed, not suggested, and computational efficiency follows from the structure rather than motivating it.</li>
+  <li><strong>RoCA:</strong> Identified representational expressivity as the bottleneck for rare, cross-domain driving scenarios and uncertainty aware informed richer function space decision making</li>
+  <!-- <li><strong>Generative Rollouts:</strong> Used generative rollouts to successfully reweight the training distribution rather than manually patching it.</li> -->
 </ul>
 <ol>
   <li>
