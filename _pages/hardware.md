@@ -14,7 +14,9 @@ Before working on learned models, I spent several years doing hardware-first sys
 Founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid robot developed at Sirena Technologies in Bangalore. Led the complete mechanical and control architecture from concept to walking prototype.
 
 <div style="max-width: 640px; margin: 1.5em 0;">
-  <iframe width="100%" height="360" src="https://www.youtube.com/embed/pRwlEzVTfzs" frameborder="0" allowfullscreen></iframe>
+  <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/pRwlEzVTfzs" frameborder="0" allowfullscreen></iframe>
+  </div>
 </div>
 
 **Mechanical design.** Defined the full kinematic structure: degree-of-freedom allocation, joint placement, and actuator sizing via static load analysis to optimize stability margins. The tradeoffs here — between stability, weight distribution, actuator torque budget, and gait flexibility — are not separable from the control problem. Getting DoF selection wrong means no control algorithm can compensate.
