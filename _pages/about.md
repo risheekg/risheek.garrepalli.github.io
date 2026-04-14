@@ -39,7 +39,7 @@ How do you realize latent representations with multiple implicit levels of hiera
   - Harness amortization: when can external scaffolds be internalized?
   - Small model distillation: what survives compression while preserving structured reasoning?
 
-- **Diffusion LLMs as lever** Multi-token atomic generation extends and changes DoF within planning horizon (MPC-style), potentially yielding smoother and more compressible internal states than next-token prediction.
+- **Diffusion LLMs as lever** Multi-token atomic generation shifts both planning horizon and decision DoF — diffusion commits jointly over spans rather than sequentially token by token, which may yield smoother trajectories and more compressible internal states.
 ---
 
 ## Research Interests
