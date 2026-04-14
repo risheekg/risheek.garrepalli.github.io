@@ -26,21 +26,19 @@ I approach problems through probabilistic modeling and RL, grounded in numerical
 
 ---
 
-## Current Work
+## Current Research Vision
 
-How do we realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence, and when can the external scaffolding that supports them be amortized away?
+How do we realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence—and when can the external scaffolding that supports them be amortized away?
 
-*Shared modeling questions for LLMs, vision-grounded world models, reasoning.*
+*Shared modeling questions for LLMs, vision-grounded world models, and reasoning:*
 
-- **World models are splitting into two camps — the opportunity is in the middle.** Token/KV-cache systems give clean planning interfaces and persistent state; video-diffusion models give richer implicit dynamics but weaker manipulable abstractions. Neither wins alone. The missing piece is a controllable intermediate: persistent summaries plus local detail, a physics-aware planning interface, and a feedback loop that still exploits video-scale dynamics. The bottleneck is the interface between memory, reasoning, and control.
+- __Are world models splitting into two camps, and is the opportunity in the middle?__ Token/KV-cache systems give clean planning interfaces and persistent state; video-diffusion models (without KV-cache) give richer implicit dynamics but weaker manipulable abstractions. Neither wins alone. The missing piece is a controllable intermediate: persistent summaries plus local detail, and a physics-aware planning interface and **feedback policy (e.g., DreamZero compared to VLAs)** that still exploits video-scale dynamics. The bottleneck is the interface between memory, reasoning, control, and scalability.
 
-- **External harnesses are a stage, not a permanent crutch.** Verifiers, judges, teachers, and planners reveal what control signal the base model was missing. The scientifically interesting question is which parts can be amortized into the model's internal representation over time — and how you know when they're still necessary. Models that know *when* they need external help, and learn from it, are the right target.
+- __Are external harnesses a stage, rather than a permanent crutch?__ Verifiers, judges, teachers, and planners reveal what control signal the base model was missing. The scientifically interesting question is which parts can be amortized into the model's internal representation over time, and how we know when they are still necessary. Models that know *when* they need external help, and learn from it, are the right target. Scaffolding helps manage the __unknown-unknowns__ of the model's own capabilities.
 
-- **Representation, competence, and memory are one problem.** "Latent reasoning," "KV compression," "visual memory," and "external verifiers" are treated as separate subfields. They're competing answers to the same underlying question: *what state should persist, and in what form?* The next capability gains come from shaping internal structure that jointly supports competence estimation, memory compression, and selective use of scaffolds: not from treating these as independent engineering concerns.
+- __Representation, competence, and memory are one problem.__ "Latent reasoning," "KV compression," "visual memory, CoT," and "external verifiers" are currently treated as separate problems. In reality, they are competing answers to the same underlying question: *what state should persist, and in what form?* The next capability gains will come from shaping internal structures that jointly support competence estimation, memory compression, and multi-level controllable latent states with the selective use of scaffolds—not from treating these as independent engineering concerns.
 
-- **Diffusion LLMs as lever.** 
-Multi-token atomic generation shifts both planning horizon and decision DoF — diffusion commits jointly over spans rather than sequentially token by token, which may yield smoother trajectories and more compressible internal states.
----
+- __Diffusion LLMs as a lever.__ Multi-token atomic generation shifts both the planning horizon and decision DoF. Diffusion commits jointly over spans rather than sequentially token by token, which may yield smoother trajectories and more compressible internal states.
 
 ## Research Interests
 
