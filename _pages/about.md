@@ -10,7 +10,7 @@ I'm a Staff Research Scientist at **Qualcomm AI Research**, working at the inter
 
 I approach problems through probabilistic modeling and RL, grounded in numerical optimization and occasionally dynamical systems and theory as a diagnostic tool. This lens runs across my work on diffusion models for vision and language, open-set detection, covariate shift in distilled samplers, policy learning, and how to guide sampling toward regions the model can actually reason about.
 
-**20+ publications at NeurIPS / ICML / CVPR / ECCV / ICLR / JMLR.** Qualcomm Innovation Fellow 2022–2025.
+**20+ publications at NeurIPS / ICML / CVPR / ECCV / ICLR / JMLR.**
 
 ---
 
