@@ -31,9 +31,9 @@ Founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid r
 
 ## Neuro-Adaptive Optimal Control — Quadcopters (IISc)
 
-Research on adaptive control for quadrotors at the Indian Institute of Science (IISc), where the goal was maintaining stable flight under model uncertainty and external disturbances. The setup: a nominal optimal controller paired with a neural network that continuously learns unmodeled dynamics online and updates the control policy in response — simultaneous online model identification and policy adaptation.
+Research on adaptive control for quadrotors at the Indian Institute of Science (IISc), where the goal was maintaining stable flight under model uncertainty and external disturbances. The setup: a nominal optimal controller paired with a neural network that continuously learns unmodeled dynamics online and updates the control policy in response: simultaneous online model identification and policy adaptation.
 
-In RL terms: the agent is updating both its world model estimate and its policy in closed loop, with no episode resets, under a stability requirement that classical adaptive control theory formalizes explicitly. The interesting tension is that the neural component improves performance under disturbances but trades away the clean Lyapunov stability guarantees of purely classical methods — a concrete instance of the expressivity-vs-guarantees tradeoff that appears throughout learned control.
+In RL terms: the agent is updating both its world model estimate and its policy in closed loop, with no episode resets and finite horizon replanning. The interesting tension is that the neural component improves performance under disturbances but trades away the clean stability guarantees of purely classical methods — a concrete instance of the expressivity-vs-guarantees tradeoff that appears throughout learned control.
 
 ---
 
@@ -41,6 +41,6 @@ In RL terms: the agent is updating both its world model estimate and its policy 
 
 First introduction to systems engineering and safety-critical hardware design as part of a satellite team collaborating with ISRO. The focus was fault-tree analysis: systematically enumerating failure modes, estimating their probabilities, and designing redundancy structures to meet reliability targets.
 
-**What this taught me that ML research often misses.** In safety-critical systems, reliability is specified *before* you build the system, not measured after deployment. The design process starts with a failure budget and works backwards to component-level requirements. This is almost the opposite of how most ML systems are deployed — trained, shipped, and then evaluated on failures as they occur.
+**What this taught me that ML research often misses.** In safety-critical systems, reliability is specified *before* you build the system, not measured after deployment. The design process starts with a failure budget and works backwards to component-level requirements. This is almost the opposite of how most ML systems are deployed: trained, shipped, and then evaluated on failures as they occur.
 
 The satellite work established an intuition I've returned to repeatedly: **the relevant question is not just "does this system work?" but "under what conditions does it fail, and how detectably?"** That question is now central to my research on uncertainty and representation.
