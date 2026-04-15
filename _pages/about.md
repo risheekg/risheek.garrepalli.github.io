@@ -10,6 +10,8 @@ I'm a Staff Research Scientist at **Qualcomm AI Research**, working on generativ
 
 I approach these problems through probabilistic modeling and sequential decision-making, grounded in numerical optimization. This lens connects my work across diffusion distillation, open-set recognition, policy learning, and the broader question of how to guide inference (and learning) toward regions where a model can reliably estimate its own competence.
 
+[**15+ peer-reviewed publications** at JMLR, NeurIPS, ICML, CVPR, and ECCV →](/publications/)
+
 ---
 
 ## Highlights
