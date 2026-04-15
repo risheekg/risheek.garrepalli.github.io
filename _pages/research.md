@@ -15,7 +15,7 @@ This connects work on diffusion distillation, open-set recognition, policy learn
 
 **The covariate shift problem in distilled diffusion models.** Standard distillation trains a student on teacher outputs at fixed time steps. But at inference the student conditions on its *own* previous outputs, not the teacher's: a trajectory mismatch that compounds across denoising steps and collapses diversity. I treated this as a sequential decision-making problem: the student is a policy, its denoising trajectory is a rollout, and covariate shift is the standard imitation learning failure mode. 
 
-The fix is DAgger-style on-policy correction (DDIL), which eliminates trajectory divergence and preserves marginal distributions at intermediate steps by training on both teacher and student induced latent states. In hindsight, this is an early instance of the same core idea now central in LLM post-training: the model must be trained on the states induced by its own behavior, not just teacher-conditioned trajectories.
+The fix is DAgger-style on-policy correction (DDIL), which trains on the mixed distribution of student-induced and teacher-induced latent states: student-induced trajectories correct the covariate shift (the student learns to recover from its own denoising errors), while teacher-induced trajectories preserve diversity and recover marginal distributions at intermediate steps. In hindsight, this is an early instance of the same core idea now central in LLM post-training: the model must be trained on the states induced by its own behavior, not just teacher-conditioned trajectories.
 
 This framing helps connect several concurrent distillation methods (DMD2, LADD) and led directly to the deployment pipeline for sub-0.6s Stable Diffusion on mobile.
 
