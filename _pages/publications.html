@@ -5,19 +5,18 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-<p>Full list on <a href="{{ site.author.googlescholar }}">Google Scholar</a>. <strong>Garrepalli</strong> = me; * = equal contribution.</p>
-{% endif %}
+<p>Below is a curated selection of recent preprints and foundational papers that best reflect my current research trajectory, focusing on representational competence, diffusion, and embodied AI. For my full list of peer-reviewed publications (including NeurIPS, CVPR, etc.), please see my <a href="{{ site.author.googlescholar }}">Google Scholar</a>.</p>
+
+<p><strong>Garrepalli</strong> = me; * = equal contribution.</p>
 
 <hr>
 
 <h2>Reinforcement Learning & Generative Modeling</h2>
 <p><em>Diffusion distillation reframed as sequential decision-making.</em></p>
 <ul>
-  <li><strong>Trajectory as Rollout:</strong> Framed the diffusion student as a policy and its denoising path as a rollout.</li>
-  <li><strong>The Covariate Shift Problem:</strong> Identified that teacher&ndash;student trajectory mismatch is a standard imitation learning failure mode.</li>
-  <li><strong>DAgger for Diffusion (DDIL):</strong> Proposed an early instantiation of on-policy distillation—an approach now central to LLM post-training—to eliminate trajectory shift and preserve intermediate marginal distributions.</li>
-  <!-- <li><strong>DAgger for Diffusion (DDIL) original draft:</strong> Proposed on-policy correction for diffusion distillation — an early instantiation of on-policy distillation, now a central technique in LLM post-training, applied here to eliminate trajectory shift and preserve marginal distributions at intermediate denoising steps.</li> -->
+  <li><strong>Trajectory as Rollout:</strong> Frames the diffusion student as a policy and its denoising path as a rollout.</li>
+  <li><strong>The Covariate Shift Problem:</strong> Identifies that teacher&ndash;student trajectory mismatch is a standard imitation learning failure mode.</li>
+  <li><strong>DAgger for Diffusion (DDIL):</strong> Proposes an early instantiation of on-policy distillation—an approach now central to LLM post-training—to eliminate trajectory shift and preserve intermediate marginal distributions.</li>
 </ul>
 <ol>
   <li>
@@ -39,9 +38,8 @@ author_profile: true
 <h2>Reliability & Open-Set Recognition</h2>
 <p><em>What does a learned representation bound about model competence?</em></p>
 <ul>
-  <li><strong>The Oracle Analysis:</strong> Proved that open-set detection ceilings are set by what the representation preserves about the data manifold;not the classifier or non-conformity measure.</li>
-  <li><strong>Raising the Ceiling:</strong> Minimized information loss by pairing discriminative representations with generative objectives.</li>
-  <!-- <li><strong>Complementary Mechanisms:</strong> Showed how different VAE architectures each raise the detection ceiling through distinct mechanisms.</li> -->
+  <li><strong>The Oracle Analysis:</strong> Proves that open-set detection ceilings are set by what the representation preserves about the data manifold, not the classifier or non-conformity measure.</li>
+  <li><strong>Raising the Ceiling:</strong> Minimizes information loss by pairing discriminative representations with generative objectives.</li>
 </ul>
 <ol>
   <li>
@@ -62,10 +60,10 @@ author_profile: true
 <h2>Representation Analysis & Training Objectives</h2>
 <p><em>The training objective is not just a loss function; it installs a prior over what the representation must capture.</em></p>
 <ul>
-  <li><strong>Global vs. Local Priors:</strong> Showed that score matching forces global directional structure, while masked reconstruction forces local compositional dependencies.</li>
-  <li><strong>Combining Priors (MAgD):</strong> Demonstrated that augmenting diffusion with masking recovers structural information neither objective captures alone.</li>
-  <li><strong>AR vs. Diffusion LLMs:</strong> Hypothesized that diffusion's trajectory-level planning induces fundamentally different information organization and MoE specialization compared to autoregressive models.</li>
-  <li><strong>Skip-to-Good-Part:</strong> Demonstrated preliminary evidence of this architectural divergence by analyzing layer-wise representational smoothness and computational redundancy.</li>
+  <li><strong>Global vs. Local Priors:</strong> Shows that score matching forces global directional structure, while masked reconstruction forces local compositional dependencies.</li>
+  <li><strong>Combining Priors (MAgD):</strong> Demonstrates that augmenting diffusion with masking recovers structural information neither objective captures alone.</li>
+  <li><strong>AR vs. Diffusion LLMs:</strong> Hypothesizes that diffusion's trajectory-level planning induces fundamentally different information organization and MoE specialization compared to autoregressive models.</li>
+  <li><strong>Skip-to-Good-Part:</strong> Demonstrates preliminary evidence of this architectural divergence by analyzing layer-wise representational smoothness and computational redundancy.</li>
 </ul>
 <ol>
   <li>
@@ -87,25 +85,26 @@ author_profile: true
 <h2>Generative Priors in Perception & Embodied AI</h2>
 <p><em>Generative priors as deliberate inductive biases for perception.</em></p>
 <ul>
-  <li><strong>DIFT:</strong> Enforced hierarchical correspondence estimation, showing that from a Bayesian view, coarse-to-fine refinement is the right prior for optical flow&mdash;the hierarchical structure is imposed, not suggested, and computational efficiency follows from the structure rather than motivating it.</li>
-  <li><strong>RoCA:</strong> Identified representational expressivity as the bottleneck for rare, cross-domain driving scenarios and uncertainty aware informed richer function space decision making</li>
-  <!-- <li><strong>Generative Rollouts:</strong> Used generative rollouts to successfully reweight the training distribution rather than manually patching it.</li> -->
+  <li><strong>DIFT:</strong> Enforces hierarchical correspondence estimation, showing that from a Bayesian view, coarse-to-fine refinement is the right prior for optical flow&mdash;the hierarchical structure is imposed, not suggested, and computational efficiency follows from the structure rather than motivating it.</li>
+  <li><strong>RoCA:</strong> Identifies representational expressivity as the bottleneck for rare, cross-domain driving scenarios and utilizes uncertainty-aware informed richer function space decision making.</li>
 </ul>
 <ol>
   <li>
     <strong>Garrepalli</strong>, Jeong, Ravindran, Lin, Porikli.
     &ldquo;DIFT: Dynamic Iterative Field Transforms for Memory Efficient Optical Flow.&rdquo;
-    <strong>CVPRW 2023.</strong>
+    <strong>CVPR Workshop 2023.</strong>
   </li>
   <li>
     Yasarla, Han, Cheng, Liu, Mahajan, Bhattacharyya, Shi, <strong>Garrepalli</strong>, Cai, Porikli.
     &ldquo;RoCA: Robust Cross-Domain End-to-End Autonomous Driving.&rdquo;
     arXiv 2025.
     <a href="https://arxiv.org/abs/2506.10145">[arXiv]</a>
+    <em>(originated framing: representational expressivity as the bottleneck for long-tail and rare cross-domain scenarios)</em>
   </li>
   <li>
     Yasarla, Singh, Cai, Shi, Jeong, Zhu, Han, <strong>Garrepalli</strong>, Porikli.
     &ldquo;FutureDepth: Learning to Predict the Future Improves Video Depth Estimation.&rdquo;
     <strong>ECCV 2024.</strong>
+    <em>(motivated generative prediction prior grounded in oracle analysis; advocated for on-policy/non-teacher-forcing training formulation)</em>
   </li>
 </ol>

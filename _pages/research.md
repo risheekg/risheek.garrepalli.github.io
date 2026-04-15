@@ -17,9 +17,9 @@ This connects work on diffusion distillation, open-set recognition, policy learn
 
 The fix is DAgger-style on-policy correction (DDIL), which eliminates trajectory divergence and preserves marginal distributions at intermediate steps by training on both teacher and student induced latent states. In hindsight, this is an early instance of the same core idea now central in LLM post-training: the model must be trained on the states induced by its own behavior, not just teacher-conditioned trajectories.
 
-This framing unified several concurrent distillation methods (DMD2, LADD) and led directly to the deployment pipeline for sub-0.6s Stable Diffusion on mobile.
+This framing helps connect several concurrent distillation methods (DMD2, LADD) and led directly to the deployment pipeline for sub-0.6s Stable Diffusion on mobile.
 
-**World's first on-device generative AI.** Led the cross-functional team at Qualcomm that shipped the world's first and fastest text-to-image generation on a mobile device: sub-0.6s Stable Diffusion on Snapdragon hardware. End-to-end stack: progressive distillation, W4A8 quantization, on-device memory management. Featured at MWC'23, Snapdragon Summit, and Qualcomm earnings. Covered by [The Verge](https://www.theverge.com/2023/2/23/23611668/ai-image-stable-diffusion-mobile-android-qualcomm-fastest) and [Engadget](https://www.engadget.com/qualcomm-brings-on-device-ai-to-mobile-and-pc-190030938.html).
+**World's first on-device generative AI.** ML lead in the cross-functional team at Qualcomm that shipped the world's first and fastest on-device text-to-image generation: sub-0.6s Stable Diffusion on Snapdragon hardware. Owned the distillation problem end-to-end — built the training pipeline, managed 50TB data pipelines via MosaicML MDS, progressive distillation, and W4A8 quantization — and modified diffusion sampling for on-target quality. Featured at MWC'23, Snapdragon Summit, and Qualcomm earnings. Covered by [The Verge](https://www.theverge.com/2023/2/23/23611668/ai-image-stable-diffusion-mobile-android-qualcomm-fastest) and [Engadget](https://www.engadget.com/qualcomm-brings-on-device-ai-to-mobile-and-pc-190030938.html).
 
 <div style="max-width: 340px; margin: 1.5em 0;">
   <iframe width="340" height="604" src="https://www.youtube.com/embed/64VsQHhImQI" frameborder="0" allowfullscreen></iframe>
@@ -29,7 +29,7 @@ This framing unified several concurrent distillation methods (DMD2, LADD) and le
 
 ## Foundation Models & Embodied AI
 
-**Controllable abstractions for foundation models.** A thread connecting speculative decoding, discrete diffusion for language, and unified generative objectives is the question of what internal state a model should actually plan in. Next-token prediction, score matching, and masked diffusion impose different priors on representation and commitments on inference, memory, and controllability. My interest is in which objectives yield smoother reasoning state, better compression, and more manipulable abstractions for post-training and agentic control.
+**Controllable abstractions for foundation models.** An active research direction connecting speculative decoding, discrete diffusion for language, and unified generative objectives is the question of what internal state a model should actually plan in. Next-token prediction, score matching, and masked diffusion impose different priors on representation and commitments on inference, memory, and controllability. My interest is in which objectives yield smoother reasoning state, better compression, and more manipulable abstractions for post-training and agentic control.
 
 **Vision-language-action models and diffusion policies.** Research on VLA training, and RL-based action generation for autonomous driving.
 
@@ -49,15 +49,12 @@ The thread connecting this body of work: **competence estimation** — knowing n
 
 ---
 
-<!-- ## Current Work & Open Questions
+## Current Work & Open Questions
 
-**The central question.** How do you realize latent representations with multiple implicit levels of hierarchy — yet controllable, and with reliable notions of competence? This question connects back to the open-set and hybrid representation work directly: what a representation preserves determines what's detectable, what's compressible, and what's trustworthy. The difference now is that the question is live for foundation models at a scale where probing it is hard, and where the failure modes are less legible.
+**The central question.** The open-set work showed that what a representation preserves determines what's detectable and what's trustworthy. The same question now runs through foundation models at scale: what internal competence is actually learned, what still has to remain external, and how do we know the difference? The tractability has changed — on-policy distillation, verifier routing, and diffusion LLMs give concrete handles that didn't exist before.
 
-**SLMs augmented with on-policy distillation as the testbed.** Frontier-scale models are the wrong place to study this — too large to ablate, too opaque to probe systematically. Small language models trained with on-policy distillation are the right setting: use a frontier model as teacher, verifier, or critic; distill the useful control signal; and study whether that training pressure produces representations that are hierarchically structured, competence-aware, and increasingly self-sufficient as the harness is amortized away. If the representation structure we want exists in small models, it likely generalizes.
+**World models splitting into two camps.** Token/KV-cache systems give clean planning interfaces but limited expressive dynamics; video-diffusion gives richer implicit dynamics but weaker manipulable abstractions. The missing piece is a controllable intermediate: persistent summaries plus local detail, and a physics-aware planning interface that exploits video-scale dynamics or long-horizon reasoning chains. The bottleneck is the interface between memory, reasoning, and control.
 
-**Diffusion LLMs as a lever.** Discrete diffusion naturally extends the atomic horizon of generation — where next-token prediction commits one token at a time, diffusion operates over spans in a finite-horizon, MPC-style manner. That may yield smoother or more compressible internal states, and a cleaner substrate for hierarchical latent structure than autoregressive decoding forces. Skip-to-Good-Part gives early evidence that diffusion and AR models encode measurably different representational geometry; the open question is whether those differences are exploitable for controllability and hierarchy — not just efficiency.
+**External harnesses as a stage, not a permanent scaffold.** Verifiers, judges, and planners reveal what control signal the base model missed. The tractable version of this question: SLMs trained with on-policy distillation, using a frontier model as teacher, verifier, or critic. Distill the useful control signal and study whether that training pressure produces representations that are hierarchically structured, competence-aware, and increasingly self-sufficient as the harness is amortized away.
 
-**Open questions.** 
-- World models: what controllable abstraction bridges token/KV-cache systems with strong planning interfaces and video-diffusion systems with richer implicit dynamics? 
-- Harness amortization: when can external judges, teachers, and verifiers be internalized rather than permanently scaffolded? 
-- Small model distillation: what survives compression while preserving structured reasoning? -->
+**Diffusion LLMs as a lever.** Discrete diffusion naturally extends the atomic horizon of generation — where next-token prediction commits one token at a time, diffusion operates over spans in a finite-horizon, MPC-style manner. That may yield smoother or more compressible internal states, and a cleaner substrate for hierarchical latent structure than autoregressive decoding forces. Skip-to-Good-Part gives early evidence that diffusion and AR models encode measurably different representational geometry; the open question I am pursuing is whether those differences are exploitable for controllability and hierarchy — not just efficiency.

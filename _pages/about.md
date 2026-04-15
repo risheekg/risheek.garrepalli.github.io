@@ -6,21 +6,19 @@ redirect_from:
   - /about.html
 ---
 
-I'm a Staff Research Scientist at **Qualcomm AI Research**, working on generative modeling, reinforcement learning, and representation learning. My focus is **representational competence under distribution shift**: how training objectives, score matching, next-token prediction and post-training procedures, external scaffolds shape: what a model actually captures, where it fails silently, and how detectable those failures are at inference time.
+I'm a Staff Research Scientist at **Qualcomm AI Research**, working on generative modeling, reinforcement learning, and representation learning. My focus is **representational competence under distribution shift**. Specifically, I study how training objectives (like score matching or next-token prediction) and post-training procedures shape what a model actually captures, where it fails silently, and how detectable those failures are at inference time.
 
-I approach these problems through probabilistic modeling and sequential decision-making, grounded in numerical optimization with theory as a diagnostic tool. This lens runs across my work on diffusion models for vision and language, on-policy distillation, open-set detection, policy learning, and the broader question of how to guide inference toward regions where a model can actually reason and reliably estimate its own competence.
-
-**20+ publications at JMLR / ICML / NeurIPS / ICLR / CVPR / ECCV.**
+I approach these problems through probabilistic modeling and sequential decision-making, grounded in numerical optimization. This lens connects my work across diffusion distillation, open-set recognition, policy learning, and the broader question of how to guide inference (and learning) toward regions where a model can reliably estimate its own competence.
 
 ---
 
 ## Highlights
 
-**World's first sub-0.6s Stable Diffusion on mobile** — Led a cross-functional team at Qualcomm delivering the world's first and fastest on-device text-to-image generation. Covered by [The Verge](https://www.theverge.com/2023/2/23/23611668/ai-image-stable-diffusion-mobile-android-qualcomm-fastest) and [Engadget](https://www.engadget.com/qualcomm-brings-on-device-ai-to-mobile-and-pc-190030938.html), featured at MWC'23 and Snapdragon Summit.
+**World's first sub-0.6s Stable Diffusion on mobile** — ML lead in a cross-functional team at Qualcomm delivering the world's first and fastest on-device text-to-image generation. Built the training pipeline from scratch, managed 50TB data pipelines via MosaicML MDS, identified the manifold thresholding technique that resolved diversity collapse, modified diffusion sampling for on-target quality, and led debugging across the deployment stack. Covered by [The Verge](https://www.theverge.com/2023/2/23/23611668/ai-image-stable-diffusion-mobile-android-qualcomm-fastest) and [Engadget](https://www.engadget.com/qualcomm-brings-on-device-ai-to-mobile-and-pc-190030938.html), featured at MWC'23 and Snapdragon Summit.
 
-**Diffusion distillation from first principles** — Identified trajectory diversity collapse as a fundamental failure mode in distilled diffusion models. Proposed a DAgger-based fix (DDIL) that eliminates covariate shift between teacher and student sampling trajectories, preserving marginal distributions at intermediate denoising steps.
+**Diffusion distillation reframed as imitation learning** — Identified trajectory diversity collapse as a fundamental failure mode in distilled diffusion models. Proposed a DAgger-based on-policy correction (DDIL) that eliminates covariate shift between teacher and student sampling trajectories, preserving marginal distributions at intermediate denoising steps — the insight that drove the sub-0.6s deployment.
 
-**Reliable representations under distribution shift** — Graduate research at Oregon State (advisors: Tom Dietterich, Alan Fern) on a question that is still central today: what does a learned representation actually retain, what information does it discard, and how does that determine whether failure is detectable? I studied how to quantify information loss and showed that augmenting discriminative objectives with generative priors yields richer representations that expose more reliable uncertainty and competence signals.
+**Reliable representations under distribution shift** — Graduate research at Oregon State (advisors: Tom Dietterich, Alan Fern) focusing on open-set detection. I studied how to quantify information loss and showed that augmenting discriminative objectives with generative priors yields richer representations that expose more reliable uncertainty and competence signals.
 
 **Hardware-first grounding** — Before ML: fault-tree analysis on a satellite team (ISRO collaboration), then founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid robot — DoF allocation, static load analysis, EKF state estimation, 3D-LIP gait control, from concept to walking prototype.
 
@@ -32,13 +30,11 @@ How do we realize latent representations with multiple implicit levels of hierar
 
 *Current research directions spanning post-training, multimodal world models, and competence-aware reasoning:*
 
-- __Are world models splitting into two camps?__ Token/KV-cache systems give clean planning interfaces; video-diffusion gives richer dynamics but weaker manipulable abstractions. The missing piece is a controllable intermediate: persistent summaries plus local detail, and a physics-aware planning interface that exploits video-scale dynamics or long-reasoning chains. The bottleneck is the interface between memory, reasoning, and control.
+- **Are world models splitting into two camps?** Token/KV-cache systems give clean planning interfaces; video-diffusion gives richer dynamics but weaker manipulable abstractions. The missing piece seems to be a controllable intermediate with an interface between memory, reasoning, and control.
 
-- __Are external harnesses a stage, rather than a crutch?__ Verifiers, judges, and planners reveal what control signal the base model missed. The question is which parts can be amortized into internal representations, and how to know when they are still necessary. Models that know *when* they need external help are the right target.
+- **Are external harnesses a stage, rather than a crutch?** Verifiers, judges, and planners reveal what control signal the base model missed; the question is which parts can be amortized into internal representations. SLMs trained with on-policy distillation are the tractable testbed.
 
-- __Representation, competence, and memory are one problem.__ "Latent reasoning," "KV compression," and "external verifiers" share a core question: *what state should persist, and in what form?* Capability gains will come from internal structures that jointly support competence estimation, memory compression, and controllable latent states.
-
-- __Diffusion LLMs as a lever.__ Diffusion commits jointly over spans (finite horizon MPC) rather than sequentially token by token. This may yield smoother trajectories and more compressible internal states, giving a cleaner substrate for hierarchical latent structure than autoregressive decoding.
+- **Diffusion LLMs as a lever.** Diffusion commits jointly over spans (finite-horizon MPC) rather than token-by-token, which may yield smoother trajectories and a cleaner substrate for hierarchical latent structure. Skip-to-Good-Part gives early evidence; the open question is whether those differences are exploitable for controllability—not just efficiency.
 
 ## Research Interests
 
