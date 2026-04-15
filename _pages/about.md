@@ -32,7 +32,7 @@ How do we realize latent representations with multiple implicit levels of hierar
 
 *Current research directions spanning post-training, multimodal world models, and competence-aware reasoning:*
 
-- **Are world models splitting into two camps?** Token/KV-cache systems give clean planning interfaces; video-diffusion gives richer dynamics but weaker manipulable abstractions. The missing piece seems to be a controllable intermediate with an interface between memory, reasoning, and control.
+- **World modeling through a TAMP lens.** Task and Motion Planning maps cleanly onto the current model landscape: VLAs are more akin to feedforward/model-free task planners and excel at LLM-native agentic planning but remaining open-loop; video-prediction/world action models (diffusion, JEPA-style) are model-based feedback controllers for motion planning and provide the continuous, physics-aware policies necessary for robustness to disturbances. This isn't just a token/KV-cache vs. video-diffusion split: it's feedforward vs. feedback, and the question is what controllable intermediate bridges them. JEPA forces explicit manipulable latent structure, while natively multimodal architectures with shared KV-cache (BAGEL, Transfusion, Gemma, Qwen3.5) approach the same goal from the other direction: **a unified representation across memory, reasoning, and action** that could finally close the loop.
 
 - **Are external harnesses a stage, rather than a crutch?** Verifiers, judges, and planners reveal what control signal the base model missed; the question is which parts can be amortized into internal representations. SLMs trained with on-policy distillation are the tractable testbed.
 
@@ -43,7 +43,7 @@ How do we realize latent representations with multiple implicit levels of hierar
 [**Generative modeling & efficient inference →**](/research/#generative-ai--efficient-inference)
 Diffusion models, distillation, on-device deployment. The covariate shift problem in few-step samplers. Score-based and flow-based models as probabilistic inference.
 
-[**Foundation models, VLAs & embodied AI →**](/research/#foundation-models--embodied-ai)
+[**LLMs, world models & embodied AI →**](/research/#llms-world-models--embodied-ai)
 Vision-language-action models, speculative decoding, diffusion policies for manipulation. How planning and uncertainty should interact in long-horizon embodied tasks.
 
 [**Competence estimation & self-knowledge →**](/research/#competence-estimation-self-knowledge--failure-detectability)
