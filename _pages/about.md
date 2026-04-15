@@ -28,15 +28,13 @@ I approach these problems through probabilistic modeling and sequential decision
 
 ## Current Research Vision
 
-How do we realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence—and when can the external scaffolding that supports them be amortized away?
+How do we realize latent representations with multiple implicit levels of hierarchy that are still controllable and carry reliable notions of competence—and when can explicit test-time search, scaffolding be amortized away?
 
-*Current research directions spanning post-training, multimodal world models, and competence-aware reasoning:*
+*Current research directions spanning post-training, multimodal world models, and competence-aware reasoning (see [Research](/research/) for a deeper dive):*
 
-- **World modeling through a TAMP lens.** Task and Motion Planning maps cleanly onto the current model landscape: VLAs are more akin to feedforward/model-free task planners and excel at LLM-native agentic planning but remaining open-loop; video-prediction/world action models (diffusion, JEPA-style) are model-based feedback controllers for motion planning and provide the continuous, physics-aware policies necessary for robustness to disturbances. This isn't just a token/KV-cache vs. video-diffusion split: it's feedforward vs. feedback, and the question is what controllable intermediate bridges them. JEPA forces explicit manipulable latent structure, while natively multimodal architectures with shared KV-cache (BAGEL, Transfusion, Gemma, Qwen3.5) approach the same goal from the other direction: **a unified representation across memory, reasoning, and action** that could finally close the loop.
-
-- **Are external harnesses a stage, rather than a crutch?** Verifiers, judges, and planners reveal what control signal the base model missed; the question is which parts can be amortized into internal representations. SLMs trained with on-policy distillation are the tractable testbed.
-
-- **Diffusion LLMs as a lever.** Diffusion commits jointly over spans (finite-horizon MPC) rather than token-by-token, which may yield smoother trajectories and a cleaner substrate for hierarchical latent structure. Skip-to-Good-Part gives early evidence; the open question is whether those differences are exploitable for controllability—not just efficiency.
+- **Closing the Action Loop via Multimodal World Models.** Standard LLMs and VLAs excel at abstract, feedforward task planning but remain open-loop. Conversely, video-prediction models act as feedback controllers that learn continuous, physics-aware priors. The  goal is a unified architectural substrate—leveraging natively multimodal LLMs and video pretraining—to bridge these paradigms, creating a single representation capable of both advanced reasoning and grounded, closed-loop action.
+- **Amortizing Test-Time Compute, Harness.** Verifiers, reward models, and MCTS-style planners reveal the control signals that base models miss during next-token prediction. The frontier question is internalization: what and how to amortize this explicit test-time search back into the base policy via on-policy distillation and RL.
+- **Diffusion as a Substrate for System 2 Planning.** Autoregressive models are constrained by token-by-token commitment. Because discrete diffusion commits over spans (finite-horizon MPC), it natively enables multi-token refinement. The open question is whether this provides a fundamentally better substrate for internal backtracking and hierarchical reasoning than AR models.
 
 ## Research Interests
 
