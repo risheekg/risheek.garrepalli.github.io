@@ -30,7 +30,7 @@ I approach these problems through probabilistic modeling and sequential decision
 
 What internal structure enables a model to reason hierarchically, estimate its own competence, and plan controllably, and how much of today's external scaffolding can be built in?
 
-*Current research directions spanning post-training, multimodal world models, and competence-aware reasoning (see [Research](/research/) for a deeper dive):*
+*Current research directions spanning post-training, multimodal world models, and competence-aware reasoning (see [Research](/research/#current-work--open-questions) for a deeper dive):*
 
 - **Closing the Action Loop via Multimodal World Models.** Standard LLMs and VLAs excel at abstract, feedforward task planning but remain open-loop. Conversely, video-prediction models act as feedback controllers that learn continuous, physics-aware priors. The  goal is a unified architectural substrate—leveraging natively multimodal LLMs and video pretraining—to bridge these paradigms, creating a single representation capable of both advanced reasoning and grounded, closed-loop action.
 - **Amortizing Test-Time Compute, Harness.** Verifiers, reward models, and MCTS-style planners reveal the control signals that base models miss during next-token prediction. The  question is internalization: what and how to amortize this explicit test-time search, external scaffolding back into the base policy via on-policy distillation and RL.
