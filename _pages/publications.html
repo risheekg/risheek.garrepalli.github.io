@@ -16,7 +16,7 @@ author_profile: true
 <ul>
   <li><strong>Trajectory as Rollout:</strong> Frames the diffusion student as a policy and its denoising path as a rollout.</li>
   <li><strong>The Covariate Shift Problem:</strong> Identifies that teacher&ndash;student trajectory mismatch is a standard imitation learning failure mode.</li>
-  <li><strong>DAgger for Diffusion (DDIL):</strong> Formulates distillation as DAgger—mixing student and teacher rollouts to eliminate trajectory shift while preserving intermediate marginal distributions.</li>
+  <li><strong>DAgger for Diffusion (DDIL):</strong> Formulates distillation like DAgger and **on-policy teacher corrective feedback** on student's rollouts to eliminate exposure bias/covariate shift.</li>
   <li><strong>From BC to On-Policy:</strong> Initially introduced to progressive distillation (behavior cloning) to drive the sub-0.6s mobile deployment, and later extended to improve concurrent on-policy methods (like DMD2) for larger models.</li>
 </ul>
 <ol>
