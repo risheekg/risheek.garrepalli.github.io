@@ -10,8 +10,9 @@ main:
   - title: "Robotics"
     url: /hardware/
 
-  - title: "Blog"
-    url: /blog/
+  # TODO: uncomment when first blog post is live
+  # - title: "Blog"
+  #   url: /blog/
 
   - title: "CV"
     url: /files/Risheek_Garrepalli_resume_ML.pdf
