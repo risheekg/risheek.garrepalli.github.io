@@ -26,28 +26,23 @@ I approach these problems through probabilistic modeling and sequential decision
 
 ---
 
+## Current Research Vision
 
-<!-- ## Current Research Vision
+**The question running through my current research: what internal structure enables a model to reason iteratively, estimate its own competence, and plan controllably:** and how much of today's external scaffolding can be built in? [DDIL](https://arxiv.org/abs/2410.11971) gives one concrete answer for distilled samplers; the forward-looking question is how far that recipe extends across post-training, test-time compute, and embodied control.
 
-What internal structure enables a model to reason hierarchically, estimate its own competence, and plan controllably, and how much of today's external scaffolding can be built in?
+Three directions currently organize this work:
 
-*Current research directions spanning post-training, multimodal world models, and competence-aware reasoning (see [Research](/research/#current-work--open-questions) for a deeper dive):*
+- **Controllable abstractions for multimodal world models.** Token/KV-cache systems plan abstractly but remain open-loop (e.g., VLAs); video and latent world models are grounded (e.g., DreamZero) and closed-loop but harder to control. The question is what interface between them supports both reasoning and closed-loop physical action — across embodied, visual, and multimodal settings.
 
-- **Closing the Action Loop via Multimodal World Models.** Standard LLMs and VLAs excel at abstract, feedforward task planning but remain open-loop. Conversely, video-prediction models act as feedback controllers that learn continuous, physics-aware priors. The  goal is a unified architectural substrate—leveraging natively multimodal LLMs and video pretraining—to bridge these paradigms, creating a single representation capable of both advanced reasoning and grounded, closed-loop action.
-- **Amortizing Test-Time Compute, Harness.** Verifiers, reward models, and MCTS-style planners reveal the control signals that base models miss during next-token prediction. The  question is internalization: what and how to amortize this explicit test-time search, external scaffolding back into the base policy via on-policy distillation and RL.
-- **Diffusion as a Substrate for System 2 Planning.** Autoregressive models are constrained by token-by-token commitment. Because discrete diffusion commits over spans (finite-horizon MPC), it natively enables multi-token refinement. The open question is whether this provides a fundamentally better substrate for internal backtracking and hierarchical reasoning than AR models. -->
+- **Iterative and diffusion substrates for reasoning.** Autoregressive models commit token-by-token; diffusion and looped architectures enable span-level refinement(finite-horizon MPC), and depth-wise parameter sharing. The question is whether this structural difference produces a genuinely better substrate for hierarchical reasoning and controllable computation.
 
-<!-- ## Current Research Vision
+- **Competence estimation as a control primitive.** A useful model should not only act or predict, but also estimate when its own rollout is likely to fail — and use that estimate to decide when to defer, replan, or call external verification, especially under distribution shift.
 
-The load-bearing commitment in my work: **covariate shift over latent rollouts is the unifying failure mode across diffusion distillation, VLA post-training, and test-time compute amortization — and it admits a shared correction recipe.**
+<!-- - **Amortizing test-time compute and external scaffolding.** Verifiers, reward models, and search expose control signals base models don't fully internalize during pretraining. The interesting question is which components can be amortized into the base policy without collapsing diversity — and which cannot, because they provide oversight the model structurally should not internalize. The replan trigger (entropy, value drop, disagreement, observation mismatch) should be learned and calibrated, not hand-scheduled -->
 
-Concretely: a pretrained model (diffusion, LLM, or world model) induces a latent trajectory at inference. Once training and deployment distributions over those trajectories diverge, the failure is identical across regimes — diversity collapse in distilled samplers, physical unreliability in VLAs, reasoning collapse under on-policy RL. [DDIL](https://arxiv.org/abs/2410.11971) solved one instance of this at scale. The research program is to test whether the same DAgger-style mixed-distribution correction, combined with a supervision schedule gated by *distance from the pretrained manifold*, generalizes to latent rollouts in post-training and embodied control.
+<!-- This is the throughline connecting my past work on uncertainty and representation learning to current questions in post-training, agentic reasoning, and embodied foundation models. -->
 
-*See [Research → Current Work & Open Questions](/research/#current-work--open-questions) for the falsifiable predictions and open questions that follow.*
-
-- **A unified planning template, not a universal representation.** LLMs and world models need not share one latent geometry; they need to share a *planning template*: extract a latent interface from the pretrained model, run a short-horizon rollout under learned latent dynamics, replan on a calibrated uncertainty signal, decode only at the output boundary. The claim worth making — and the one that could be wrong — is that **the same interface properties (predictive sufficiency, intervention-stability, distance-from-pretraining calibration) determine whether this template works in any modality**. I want to know when pretrained hidden states are merely useful for prediction versus *valid under intervention*, a distinction most of the current "latent reasoning" work elides.
-
-- **Competence as a learned object, not a threshold.** External verifiers, reward models, and search scaffolds are a temporary stage. The interesting question is which components can be amortized into the base policy without collapsing diversity — and which cannot, because they provide oversight the model structurally should not internalize. The replan trigger (entropy, value drop, disagreement, observation mismatch) should be learned and calibrated, not hand-scheduled. My grad school work on competence estimation under distribution shift is the prior I bring to this. -->
+---
 
 ## Research Interests
 
@@ -63,8 +58,8 @@ Open-set recognition, reliable representations under distribution shift. What tr
 [**Physical systems & robotics →**](/hardware/)
 Humanoid design and control, neuro-adaptive optimal control for quadcopters, fault-tolerant system design for safety-critical hardware.
 
----
-
+<!-- --- -->
+<!-- 
 ## Writing
 
-[Research notes & bets →](/blog/)
+[Research notes & bets →](/blog/) -->
