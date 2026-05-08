@@ -34,7 +34,7 @@ Three directions currently organize this work:
 
 - **Controllable abstractions for multimodal world models.** Token/KV-cache systems plan abstractly but remain open-loop (e.g., VLAs); video and latent world models are grounded (e.g., DreamZero) and closed-loop but harder to control. The question is what interface between them supports both reasoning and closed-loop physical action — across embodied, visual, and multimodal settings.
 
-- **Iterative and diffusion substrates for reasoning.** Autoregressive models commit token-by-token; diffusion and looped architectures enable span-level refinement(finite-horizon MPC), and depth-wise parameter sharing. The question is whether this structural difference produces a genuinely better substrate for hierarchical reasoning and controllable computation.
+- **Iterative and diffusion substrates for reasoning.** Autoregressive models commit token-by-token; diffusion and recursive architectures enable span-level refinement(finite-horizon MPC), and depth-wise parameter sharing. The question is whether this structural difference produces a genuinely better substrate for hierarchical reasoning and controllable computation.
 
 - **Competence estimation as a control primitive.** A useful model should not only act or predict, but also estimate when its own rollout is likely to fail — and use that estimate to decide when to defer, replan, or call external verification, especially under distribution shift.
 
