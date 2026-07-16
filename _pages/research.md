@@ -11,8 +11,6 @@ The common object across these settings is a single loop — acquire feedback th
 
 1. **Search creates supervision** — generated computation (rollouts, verifiers, self-consistency, process supervision, latent futures) produces structure worth internalizing.
 2. **Distribution-aware correction / OPD internalizes it without collapse** — the model learns on its own induced states while preserving the diversity and coverage of the pretrained/reference distribution.
-<!-- 3. **Competence estimates whether the current representation is not sufficient** Read online, from intermediate states, and differnet parts of trace/stack across LLMs, Embodied Foundation Models/World Models.
-4. **Control uses that estimate to act** Allocate compute, refine, resample, rollback, call a verifier, replan, query a simulator, or defer i.e., where to query and quality of feedback with competance estimates. -->
 
 These questions show up in diffusion distillation, reasoning post-training, and embodied world models. I treat them not as separate topics but as different instantiations of the same loop, connecting my work on diffusion distillation, open-set recognition, efficient deployment, multimodal representation, and embodied control.
 
