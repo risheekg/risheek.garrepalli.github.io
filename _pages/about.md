@@ -1,14 +1,16 @@
 ---
-permalink: /
+permalink: /about-draft/
 author_profile: true
+title: "About"
 redirect_from:
-  - /about/
-  - /about.html
+  - /about-draft.html
 ---
 
-I'm a Staff Research Scientist at **Qualcomm AI Research**, working on generative modeling, reinforcement learning, and representation learning. My focus is **representational competence under distribution shift**. Specifically, I study how training objectives (like score matching or next-token prediction) and post-training procedures shape what a model actually captures, where it fails silently, and how detectable those failures are at inference time.
+I'm a Researcher at **Qualcomm AI Research**, working on generative modeling, reinforcement learning, and representation learning, including post-training for reasoning models (on-policy distillation, RL fine-tuning), also in context of embodied world models.
 
-I approach these problems through probabilistic modeling and sequential decision-making, grounded in numerical optimization. This lens connects my work across diffusion distillation, open-set recognition, policy learning, and the broader question of how to guide inference (and learning) toward regions where a model can reliably estimate its own competence.
+One line of work I keep returning to is [DDIL](https://arxiv.org/abs/2410.11971), where I reframed diffusion distillation as imitation learning: the diffusion student is a policy, its denoising trajectory is a rollout, and teacher–student mismatch is a covariate-shift/exposure bias problem. The correction is DAgger-style mixed-distribution training i.e., learn on the student's own induced states while preserving teacher/reference states that maintain diversity. This work was instrumental in **world's first sub-0.6s on-device Stable Diffusion** deployment. The transferable idea is not "faster sampling": it is **amortizing a slow teacher or search process into a faster model without collapsing the diversity of the pretrained prior**, a structure that reappears in reasoning post-training, verifier-guided learning, and embodied world models.
+
+A thread I find especially interesting is **competence as a runtime signal**: a verifier or confidence head cannot recover competence-relevant structure the representation has already discarded. So the leverage tends to be upstream, at the representation, rather than at a better score on top of a fixed one.
 
 [**15+ peer-reviewed publications** at JMLR, NeurIPS, ICML, CVPR, and ECCV →](/publications/)
 
@@ -16,50 +18,31 @@ I approach these problems through probabilistic modeling and sequential decision
 
 ## Highlights
 
-**World's first sub-0.6s Stable Diffusion on mobile** — ML lead in a cross-functional team at Qualcomm delivering the world's first and fastest on-device text-to-image generation. Built the training pipeline from scratch, managed 50TB data pipelines via MosaicML MDS, identified the manifold thresholding technique that resolved diversity collapse, modified diffusion sampling for on-target quality, and led debugging across the deployment stack. Covered by [The Verge](https://www.theverge.com/2023/2/23/23611668/ai-image-stable-diffusion-mobile-android-qualcomm-fastest) and [Engadget](https://www.engadget.com/qualcomm-brings-on-device-ai-to-mobile-and-pc-190030938.html), featured at MWC'23 and Snapdragon Summit.
+**World's first sub-0.6s Stable Diffusion on mobile** — ML lead in a cross-functional team at Qualcomm delivering the world's first and fastest on-device text-to-image generation. Built the training pipeline from scratch, managed 50TB data pipelines via MosaicML MDS, identified the manifold-thresholding and modified diffusion sampling for  on-target quality, and led debugging across the deployment stack. Covered by [The Verge](https://www.theverge.com/2023/2/23/23611668/ai-image-stable-diffusion-mobile-android-qualcomm-fastest) and [Engadget](https://www.engadget.com/qualcomm-brings-on-device-ai-to-mobile-and-pc-190030938.html), featured at MWC'23 and Snapdragon Summit.
 
-**Diffusion Distillation as Imitation Learning** Identified trajectory diversity collapse as a fundamental failure mode in distilled diffusion models. I proposed [DDIL](https://arxiv.org/abs/2410.11971): a DAgger-based framework that trains on the mixed distribution of student-induced states (correcting covariate shift) and teacher-induced states (preserving diversity). Initially applied to progressive distillation (behavior cloning) to drive the world's first sub-0.6s on-device deployment, I subsequently extended DDIL to improve concurrent on-policy methods (like DMD2) for larger models.
+**Diffusion distillation as imitation learning ([DDIL](https://arxiv.org/abs/2410.11971))** — Identified trajectory diversity collapse as a fundamental failure mode in distilled diffusion models and proposed a DAgger-style **on-policy** correction that trains on a mixture of student-induced states (correcting covariate shift) and teacher/reference data (preserving diversity), recovering intermediate marginal distributions. First applied to progressive distillation (behavior cloning) to enable the sub-0.6s on-device deployment, then extended to distribution matching for larger models. 
+<!-- The same structure appears in on-policy distillation, verifier-guided reasoning, and self-improvement loops. -->
 
-**Reliable representations under distribution shift** — Graduate research at Oregon State (advisors: Tom Dietterich, Alan Fern) focusing on open-set detection. I studied how to quantify information loss and showed that augmenting discriminative objectives with generative priors yields richer representations that expose more reliable uncertainty and competence signals.
+**Reliable representations under distribution shift** — Graduate research at Oregon State (advisors: Tom Dietterich, Alan Fern) on open-set recognition and failure detectability. I studied what a representation preserves about the data manifold, where competence-relevant information is lost, and why a downstream classifier, confidence head, or verifier cannot recover structure the representation has already discarded. Pairing discriminative objectives with generative priors raised the ceiling on detectable failures.
 
-**Hardware-first grounding** — Before ML: fault-tree analysis on a satellite team (ISRO collaboration), then founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid robot — DoF allocation, static load analysis, EKF state estimation, 3D-LIP gait control, from concept to walking prototype.
-
----
-
-## Current Research Vision
-
-**The question running through my current research: what internal structure enables a model to reason iteratively, estimate its own competence, and plan controllably:** and how much of today's external scaffolding can be built in? [DDIL](https://arxiv.org/abs/2410.11971) gives one concrete answer for distilled samplers; the forward-looking question is how far that recipe extends across post-training, test-time compute, and embodied control.
-
-Three directions currently organize this work:
-
-- **Controllable abstractions for multimodal world models.** Token/KV-cache systems plan abstractly but remain open-loop (e.g., VLAs); video and latent world models are grounded (e.g., DreamZero) and closed-loop but harder to control. The question is what interface between them supports both reasoning and closed-loop physical action — across embodied, visual, and multimodal settings.
-
-- **Iterative and diffusion substrates for reasoning.** Autoregressive models commit token-by-token; diffusion and recursive architectures enable span-level refinement(finite-horizon MPC), and depth-wise parameter sharing. The question is whether this structural difference produces a genuinely better substrate for hierarchical reasoning and controllable computation.
-
-- **Competence estimation as a control primitive.** A useful model should not only act or predict, but also estimate when its own rollout is likely to fail — and use that estimate to decide when to defer, replan, or call external verification, especially under distribution shift.
-
-<!-- - **Amortizing test-time compute and external scaffolding.** Verifiers, reward models, and search expose control signals base models don't fully internalize during pretraining. The interesting question is which components can be amortized into the base policy without collapsing diversity — and which cannot, because they provide oversight the model structurally should not internalize. The replan trigger (entropy, value drop, disagreement, observation mismatch) should be learned and calibrated, not hand-scheduled -->
-
-<!-- This is the throughline connecting my past work on uncertainty and representation learning to current questions in post-training, agentic reasoning, and embodied foundation models. -->
+**Hardware-first grounding** Before ML: satellite fault-tree analysis (ISRO collaboration), then founding engineer on [Nino](https://sirenatech.com/nino/), a consumer humanoid robot: DoF allocation, static load analysis, EKF state estimation, 3D-LIP gait control, from concept to walking prototype.
 
 ---
 
-## Research Interests
+## Current Research Direction
 
-[**Generative modeling & efficient inference →**](/research/#generative-ai--efficient-inference)
-Diffusion models, distillation, on-device deployment. The covariate shift problem in few-step samplers. Score-based and flow-based models as probabilistic inference.
+A loop I'm interested in studying across settings:
 
-[**LLMs, world models & embodied AI →**](/research/#llms-world-models--embodied-ai)
-Vision-language-action models, speculative decoding, diffusion policies for manipulation. How planning and uncertainty should interact in long-horizon embodied tasks.
+1. **Search creates supervision.** A model improves by exploring its own generated computation: rollouts, verifier-filtered samples, self-consistency, process supervision, latent futures — not only by imitating fixed targets.
+2. **Distribution-aware correction / on-policy distillation internalizes it without collapse.** Once a model learns from its own behavior, the training distribution becomes endogenous; the model must learn on its induced states while preserving enough reference support to keep diversity, coverage, and recoverability. 
+<!-- This is the DDIL lesson, carried into reasoning post-training. -->
+<!-- 3. **Competence estimates whether the current representation is sufficient.** Read online, from intermediate states and not just only from final outputs. -->
+<!-- 3. **Control uses that estimate to act** — allocate test-time compute, refine, resample, rollback, call a verifier, replan, or abstain. -->
 
-[**Competence estimation & self-knowledge →**](/research/#competence-estimation-self-knowledge--failure-detectability)
-Open-set recognition, reliable representations under distribution shift. What training objectives reveal about model competence — and when competence estimates are themselves unreliable.
+Much of my current attention is on **reasoning**: search amortization, on-policy distillation, verifier-guided learning, and competence-gated test-time compute as because it gives fast, measurable feedback: verifiers, critics, search traces, on-policy rollouts, and clear failure modes such as critic/verifier overfitting and **coverage collapse**. I'm interested not only in whether a recipe improves reward, but in *why and how* i.e., whether it preserves coverage and shifts measurable quantities such as rollout diversity, teacher–student overlap, feature alignment, and credit localization.
 
-[**Physical systems & robotics →**](/hardware/)
-Humanoid design and control, neuro-adaptive optimal control for quadcopters, fault-tolerant system design for safety-critical hardware.
+<!-- I'm also interested in **multimodal alignment** as a clean instance of the same interface question — visual, linguistic, and action representations live at different granularities, and a one-shot projection into a language model can discard structure needed for later reasoning or control — and in **RL for diffusion** (reward-aligned generation, diffusion policies, and continuous-diffusion / video world models) as a natural extension of the diffusion work. -->
 
-<!-- --- -->
-<!-- 
-## Writing
+I'm interested in how the same loop carries to **embodied world models**, where it appears over future states via internal world model and action rollouts under physical constraints. Here one key aspect would be **representation, interface and competence-monitoring layer between high-level reasoning and low level control**. DDIL and the reasoning work are the concrete starting points; the multimodal and embodied directions are where I'd like to see the same ideas carry.
 
-[Research notes & bets →](/blog/) -->
+[**Research →**](/research/) · [**Publications →**](/publications/)
