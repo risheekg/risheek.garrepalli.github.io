@@ -1,9 +1,9 @@
 ---
-permalink: /about-draft/
+permalink: /
 author_profile: true
 title: "About"
 redirect_from:
-  - /about-draft.html
+  - /about.html
 ---
 
 I'm a Researcher at **Qualcomm AI Research**, working on generative modeling, reinforcement learning, and representation learning, including post-training for reasoning models (on-policy distillation, RL fine-tuning), also in context of embodied world models.
