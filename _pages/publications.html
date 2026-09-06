@@ -20,7 +20,7 @@ author_profile: true
   <li><strong>From BC to On-Policy:</strong> Initially introduced to progressive distillation (behavior cloning) to drive the sub-0.6s mobile deployment, and later extended to improve concurrent on-policy methods (like DMD2) for larger models.</li>
 </ul> -->
 <p><em>How iterative models learn from their own rollouts without losing coverage. (Diffusion distillation reframed as sequential decision-making)</em></p>
-<p><strong>Covariate shift</strong> &rarr; <strong>DAgger-style correction</strong> &rarr; <strong>On-policy learning</strong><br>
+<p><strong>Covariate shift</strong> &rarr; <strong>DAgger-style correction</strong> &rarr; <strong>On-policy + Coverage Aware learning</strong><br>
 Train on student-visited denoising states; retain teacher/reference states to preserve diversity and coverage. This reframes diffusion distillation as rollout learning rather than one-step matching.</p>
 <ol>
   <li>
